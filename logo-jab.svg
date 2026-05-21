@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+  <!-- container -->
+  <rect x="11" y="11" width="490" height="490" rx="96" ry="96" fill="#FFFFFF" stroke="#111111" stroke-width="22"/>
+  <!-- top page: Red -->
+  <rect x="142" y="135" width="280" height="70" fill="#DC2626"/>
+  <!-- middle page: Yellow -->
+  <rect x="116" y="221" width="280" height="70" fill="#E6B400"/>
+  <!-- bottom page: Blue -->
+  <rect x="90" y="307" width="280" height="70" fill="#2563EB"/>
+</svg>
