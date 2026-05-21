@@ -95,14 +95,27 @@
       justify-content: center;
       text-align: center;
       padding: calc(var(--nav-h) + 60px) 22px 80px;
-      background: var(--bg);
+      background: #0a1628;
+      background-image: url('rot.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      position: relative;
     }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.6) 100%);
+    }
+
+    .hero > * { position: relative; z-index: 1; }
 
     .hero-eyebrow {
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.01em;
-      color: var(--secondary);
+      color: rgba(255,255,255,0.7);
       margin-bottom: 20px;
       opacity: 0;
       animation: fadeUp 0.7s 0.15s ease forwards;
@@ -113,7 +126,7 @@
       font-weight: 700;
       line-height: 1.04;
       letter-spacing: -0.045em;
-      color: var(--text);
+      color: #fff;
       opacity: 0;
       animation: fadeUp 0.7s 0.3s ease forwards;
     }
@@ -124,7 +137,7 @@
       font-weight: 400;
       line-height: 1.38;
       letter-spacing: 0.007em;
-      color: var(--secondary);
+      color: rgba(255,255,255,0.75);
       max-width: 560px;
       opacity: 0;
       animation: fadeUp 0.7s 0.45s ease forwards;
@@ -198,10 +211,19 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 80px;
+      grid-template-columns: 380px 1fr 1.3fr;
+      gap: 60px;
       align-items: start;
       margin-top: 60px;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
+      display: block;
     }
 
     .about-stats {
@@ -383,9 +405,28 @@
     }
 
     /* ── Mobile ── */
+    /* ── Project logo ── */
+    .project-logo {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+    .project-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+      opacity: 0.85;
+    }
+    .project-logo-text {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1;
+    }
+
     @media (max-width: 734px) {
       .nav-links { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { max-width: 280px; }
       .projects-grid { grid-template-columns: 1fr; }
       .project-card { padding: 36px 28px; }
       .about-stats { gap: 24px 20px; }
@@ -430,6 +471,9 @@
         <h2 class="section-headline">Who I am.</h2>
       </div>
       <div class="about-grid">
+        <div class="reveal">
+          <img class="about-photo" src="foto.png" alt="Rinse Nieboer" />
+        </div>
         <div class="reveal">
           <div class="about-stats">
             <div>
@@ -485,6 +529,9 @@
           <div class="project-links">
             <a class="project-visit" href="https://justmyplan.com" target="_blank" rel="noopener">Visit</a>
           </div>
+          <div class="project-logo">
+            <img src="logo-jmp.png" alt="justmyplan logo" />
+          </div>
         </div>
 
         <div class="project-card reveal">
@@ -494,6 +541,9 @@
           <div class="project-links">
             <a class="project-visit" href="https://justanopinion.org" target="_blank" rel="noopener">Visit</a>
             <a class="project-support" href="/support/justanopinion.html">Support</a>
+          </div>
+          <div class="project-logo">
+            <img src="logo-jap.png" alt="justanopinion logo" />
           </div>
         </div>
 
@@ -505,6 +555,9 @@
             <a class="project-visit" href="https://justfigured.org" target="_blank" rel="noopener">Visit</a>
             <a class="project-support" href="/support/justfigured.html">Support</a>
           </div>
+          <div class="project-logo">
+            <div class="project-logo-text">just<span style="color:#E6B400">figured</span></div>
+          </div>
         </div>
 
         <div class="project-card reveal">
@@ -514,6 +567,9 @@
           <div class="project-links">
             <a class="project-visit" href="https://justabook.org" target="_blank" rel="noopener">Visit</a>
             <a class="project-support" href="/support/justabook.html">Support</a>
+          </div>
+          <div class="project-logo">
+            <div class="project-logo-text">just<span style="color:#0071e3">abook</span></div>
           </div>
         </div>
 
