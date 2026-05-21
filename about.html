@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me — Rinse Nieboer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fff;
+      --surface: #f5f5f7;
+      --text: #1d1d1f;
+      --secondary: #6e6e73;
+      --border: #d2d2d7;
+      --accent: #0071e3;
+      --nav-h: 44px;
+      --max: 980px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -.022em;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.72;
+      transition: opacity 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    /* ── Page header ── */
+    .page-header {
+      padding: calc(var(--nav-h) + 80px) 22px 60px;
+      text-align: center;
+    }
+    .page-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      color: var(--text);
+    }
+    .page-sub {
+      margin-top: 20px;
+      font-size: clamp(17px, 2.5vw, 22px);
+      color: var(--secondary);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+
+    /* ── Section ── */
+    .section { padding: 80px 22px; }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    .section-headline {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.07;
+    }
+
+    /* ── Photo grid ── */
+    #photos { background: var(--surface); }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
+      display: block;
+    }
+    .photo-grid img:first-child {
+      aspect-ratio: 3/4;
+    }
+
+    /* ── Interests ── */
+    #interests { background: var(--bg); }
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+    .interest-card {
+      background: var(--bg);
+      padding: 40px 36px;
+      transition: background 0.2s;
+    }
+    .interest-card:hover { background: var(--surface); }
+    .interest-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .interest-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .interest-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--secondary);
+    }
+
+    /* ── Mindset ── */
+    #mindset { background: var(--surface); }
+    .mindset-body {
+      max-width: 640px;
+      margin-top: 40px;
+    }
+    .mindset-body p {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    .mindset-body p:last-of-type { margin-bottom: 0; }
+    .mindset-body strong { color: var(--text); font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      padding: 24px 22px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    footer p, footer a {
+      font-size: 13px;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 734px) {
+      .nav-links { display: none; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .interests-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">Rinse Nieboer</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about" class="active">About Me</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">About Me</p>
+    <h1 class="page-title">More than<br>what I build.</h1>
+    <p class="page-sub">A little about who I am outside of the products and the code.</p>
+  </div>
+
+  <!-- Photos -->
+  <section class="section" id="photos">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Photos</p>
+        <h2 class="section-headline">In real life.</h2>
+      </div>
+      <div class="photo-grid reveal">
+        <img src="foto.png" alt="Rinse Nieboer" />
+        <img src="fottt.png" alt="Rinse Nieboer" />
+        <img src="gilet.png" alt="Rinse Nieboer" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests -->
+  <section class="section" id="interests">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Interests</p>
+        <h2 class="section-headline">What keeps me going.</h2>
+      </div>
+      <div class="interests-grid">
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">🏐</span>
+          <div class="interest-title">Korfball</div>
+          <p class="interest-desc">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field.</p>
+        </div>
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">♟</span>
+          <div class="interest-title">Chess</div>
+          <p class="interest-desc">Chess teaches me to think several moves ahead and stay calm under pressure. The same mindset I bring to business decisions and product design.</p>
+        </div>
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">📈</span>
+          <div class="interest-title">Investing</div>
+          <p class="interest-desc">I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline. I manage portfolios for myself and my family.</p>
+        </div>
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">👶</span>
+          <div class="interest-title">Father</div>
+          <p class="interest-desc">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
+        </div>
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">🏋️</span>
+          <div class="interest-title">Training</div>
+          <p class="interest-desc">I train consistently. Physical discipline feeds mental discipline. Showing up when you don't feel like it is a skill, and you build it in the gym before anywhere else.</p>
+        </div>
+
+        <div class="interest-card reveal">
+          <span class="interest-icon">🤖</span>
+          <div class="interest-title">AI & Automation</div>
+          <p class="interest-desc">I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what's possible and what most people use is enormous.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mindset -->
+  <section class="section" id="mindset">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Mindset</p>
+        <h2 class="section-headline">How I think.</h2>
+      </div>
+      <div class="mindset-body reveal">
+        <p>I'm not the loudest person in the room. I don't need to be. I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy.</p>
+        <p>I study Entrepreneurship & Retail Management at Rotterdam University of Applied Sciences, with a minor in Impact Investment Management. But my real education happens outside the classroom — building products, making decisions, dealing with consequences.</p>
+        <p>Rotterdam shaped me. It's a city that doesn't care about appearances. It cares about what you build. <strong>010.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
+      <a href="mailto:r.j.nieboer@outlook.com">r.j.nieboer@outlook.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

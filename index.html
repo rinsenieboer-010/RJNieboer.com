@@ -422,8 +422,25 @@
       .footer-inner { flex-direction: column; }
     }
 
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; align-items: center; }
+    .hero-arrow {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 48px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.75s ease forwards;
+      text-decoration: none;
+      animation-name: arrowBounce;
+      animation-duration: 2s;
+      animation-delay: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes arrowBounce {
+      0%, 100% { opacity: 0.7; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(6px); }
     }
   </style>
 </head>
@@ -433,8 +450,9 @@
     <div class="nav-inner">
       <a class="nav-logo" href="/">Rinse Nieboer</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Me</a></li>
+        <li><a href="/projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -445,10 +463,12 @@
     <p class="hero-eyebrow">Rotterdam · Entrepreneur · Builder</p>
     <h1 class="hero-name">Rinse Nieboer</h1>
     <p class="hero-tagline">Building practical tools and platforms — independently, from scratch, built to last.</p>
-    <div class="hero-actions">
-      <a class="btn-pill btn-blue" href="#projects">See my work</a>
-      <a class="btn-pill btn-ghost" href="#about">About me</a>
-    </div>
+    <a class="hero-arrow" href="#about" aria-label="Scroll down">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="16" y1="6" x2="16" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="8,19 16,27 24,19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </a>
   </section>
 
   <!-- ── About ── -->
@@ -516,6 +536,7 @@
           <p class="project-desc">Smart planner — tasks, calendar and AI in one place.</p>
           <div class="project-links">
             <a class="project-visit" href="https://justmyplan.com" target="_blank" rel="noopener">Visit</a>
+            <a class="project-support" href="/projects#justmyplan">More →</a>
           </div>
         </div>
 
@@ -525,7 +546,7 @@
           <p class="project-desc">Sharp opinions on entrepreneurship, tech and the world.</p>
           <div class="project-links">
             <a class="project-visit" href="https://justanopinion.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/support/justanopinion.html">Support</a>
+            <a class="project-support" href="/projects#justanopinion">More →</a>
           </div>
         </div>
 
@@ -535,7 +556,7 @@
           <p class="project-desc">Real lessons from real experience — no shortcuts.</p>
           <div class="project-links">
             <a class="project-visit" href="https://justfigured.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/support/justfigured.html">Support</a>
+            <a class="project-support" href="/projects#justfigured">More →</a>
           </div>
         </div>
 
@@ -545,7 +566,7 @@
           <p class="project-desc">Clean document editor — write without the noise.</p>
           <div class="project-links">
             <a class="project-visit" href="https://justabook.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/support/justabook.html">Support</a>
+            <a class="project-support" href="/projects#justabook">More →</a>
           </div>
         </div>
 

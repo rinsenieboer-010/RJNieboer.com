@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Rinse Nieboer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fff;
+      --surface: #f5f5f7;
+      --text: #1d1d1f;
+      --secondary: #6e6e73;
+      --border: #d2d2d7;
+      --nav-h: 44px;
+      --max: 980px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, "SF Pro Text", Inter, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.47059;
+      letter-spacing: -.022em;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.72;
+      transition: opacity 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    /* ── Page header ── */
+    .page-header {
+      padding: calc(var(--nav-h) + 80px) 22px 60px;
+      text-align: center;
+    }
+    .page-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+    }
+    .page-sub {
+      margin-top: 20px;
+      font-size: clamp(17px, 2.5vw, 22px);
+      color: var(--secondary);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.45;
+    }
+
+    /* ── Project section ── */
+    .project-section {
+      padding: 100px 22px;
+      border-top: 1px solid var(--border);
+    }
+    .project-section:nth-child(even) { background: var(--surface); }
+
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    .project-logo-wrap img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .project-meta {}
+    .project-name {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .project-tagline {
+      font-size: clamp(17px, 2vw, 22px);
+      color: var(--secondary);
+      line-height: 1.4;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+    .btn-visit {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 22px;
+      border-radius: 980px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      transition: opacity 0.2s;
+    }
+    .btn-visit:hover { opacity: 0.85; }
+    .btn-visit::after { content: ' ›'; margin-left: 4px; }
+
+    /* Feature list */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .feature-item {}
+    .feature-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .feature-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--secondary);
+    }
+
+    /* Support form */
+    .support-wrap {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 48px;
+    }
+    .project-section:nth-child(even) .support-wrap { background: #fff; }
+
+    .support-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+    .support-sub {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .field:last-of-type { margin-bottom: 24px; }
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+    input, textarea {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      resize: none;
+    }
+    input:focus, textarea:focus { border-color: #0071e3; }
+    textarea { min-height: 120px; }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 22px;
+      border-radius: 980px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      background: #0071e3;
+      transition: background 0.2s;
+    }
+    .submit-btn:hover { background: #0077ed; }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-status {
+      display: none;
+      margin-top: 14px;
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+    .form-status.success { background: #f0fdf4; color: #166534; }
+    .form-status.error { background: #fef2f2; color: #991b1b; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      padding: 24px 22px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    footer p, footer a {
+      font-size: 13px;
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 734px) {
+      .nav-links { display: none; }
+      .project-top { grid-template-columns: 1fr; gap: 32px; }
+      .project-logo-wrap img { width: 100px; height: 100px; }
+      .features { grid-template-columns: 1fr; gap: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .support-wrap { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">Rinse Nieboer</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Me</a></li>
+        <li><a href="/projects" class="active">Projects</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">Projects</p>
+    <h1 class="page-title">What I've built.</h1>
+    <p class="page-sub">Four products, built independently. Each solves a real problem.</p>
+  </div>
+
+  <!-- ── justmyplan ── -->
+  <section class="project-section" id="justmyplan">
+    <div class="container">
+      <div class="project-top reveal">
+        <div class="project-logo-wrap">
+          <img src="/logo-jmp.png" alt="justmyplan" />
+        </div>
+        <div class="project-meta">
+          <h2 class="project-name">just<span style="color:#2563EB">myplan</span></h2>
+          <p class="project-tagline">A smart productivity planner that combines tasks, calendar, and AI — so you can focus on what matters.</p>
+          <a class="btn-visit" style="background:#2563EB" href="https://justmyplan.com" target="_blank" rel="noopener">Visit justmyplan.com</a>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature-item">
+          <div class="feature-title">Tasks + Calendar</div>
+          <p class="feature-desc">Everything in one place. No switching between apps, no losing track of what's due.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">AI Assistant</div>
+          <p class="feature-desc">Built-in AI helps you plan smarter — prioritise, reschedule, and cut through the noise.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Clean interface</div>
+          <p class="feature-desc">Designed to get out of your way. No clutter, no complexity — just a clear view of your day.</p>
+        </div>
+      </div>
+
+      <div class="support-wrap reveal">
+        <div class="support-title">Support</div>
+        <p class="support-sub">A question or issue with justmyplan? Send a message and I'll get back to you.</p>
+        <form onsubmit="handleSubmit(event, 'justMyplan-form', 'Just My Plan')">
+          <input type="hidden" name="site" value="Just My Plan" />
+          <div class="form-row">
+            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          </div>
+          <div class="field"><label>Subject</label><input type="text" name="subject" placeholder="What is it about?" /></div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Describe your question or issue…" required></textarea></div>
+          <div class="form-status" id="justMyplan-form-status"></div>
+          <button type="submit" class="submit-btn" style="background:#2563EB">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── justanopinion ── -->
+  <section class="project-section" id="justanopinion">
+    <div class="container">
+      <div class="project-top reveal">
+        <div class="project-logo-wrap">
+          <img src="/logo-jap.png" alt="justanopinion" />
+        </div>
+        <div class="project-meta">
+          <h2 class="project-name">just<span style="color:#DC2626">anopinion</span></h2>
+          <p class="project-tagline">Sharp, honest takes on entrepreneurship, technology, and the world. No noise — just a clear point of view.</p>
+          <a class="btn-visit" style="background:#DC2626" href="https://justanopinion.org" target="_blank" rel="noopener">Visit justanopinion.org</a>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature-item">
+          <div class="feature-title">No consensus</div>
+          <p class="feature-desc">Opinions that actually take a position. Not balanced for the sake of it — honest, direct, sometimes uncomfortable.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Entrepreneurship focus</div>
+          <p class="feature-desc">Real talk about building businesses, making decisions, and what nobody tells you about going independent.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Clean reading</div>
+          <p class="feature-desc">Minimal design, maximum focus on the writing. No distractions between you and the content.</p>
+        </div>
+      </div>
+
+      <div class="support-wrap reveal">
+        <div class="support-title">Support</div>
+        <p class="support-sub">A question about justanopinion? Get in touch.</p>
+        <form onsubmit="handleSubmit(event, 'justanopinion-form', 'Just An Opinion')">
+          <input type="hidden" name="site" value="Just An Opinion" />
+          <div class="form-row">
+            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          </div>
+          <div class="field"><label>Subject</label><input type="text" name="subject" placeholder="What is it about?" /></div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Describe your question or issue…" required></textarea></div>
+          <div class="form-status" id="justanopinion-form-status"></div>
+          <button type="submit" class="submit-btn" style="background:#DC2626">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── justfigured ── -->
+  <section class="project-section" id="justfigured">
+    <div class="container">
+      <div class="project-top reveal">
+        <div class="project-logo-wrap">
+          <img src="/logo-jf.png" alt="justfigured" />
+        </div>
+        <div class="project-meta">
+          <h2 class="project-name">just<span style="color:#E6B400">figured</span></h2>
+          <p class="project-tagline">Lessons from real experience — for entrepreneurs still figuring things out. Honest, direct, no shortcuts.</p>
+          <a class="btn-visit" style="background:#E6B400; color:#111" href="https://justfigured.org" target="_blank" rel="noopener">Visit justfigured.org</a>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature-item">
+          <div class="feature-title">Real experience</div>
+          <p class="feature-desc">Not theory. Not recycled advice. Things I actually figured out, often the hard way.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">For builders</div>
+          <p class="feature-desc">Aimed at people who are in the middle of building something — not just thinking about it.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Scannable format</div>
+          <p class="feature-desc">Short, direct insights. No padding, no filler. Read it in 2 minutes, apply it the same day.</p>
+        </div>
+      </div>
+
+      <div class="support-wrap reveal">
+        <div class="support-title">Support</div>
+        <p class="support-sub">A question about justfigured? Get in touch.</p>
+        <form onsubmit="handleSubmit(event, 'justfigured-form', 'Just Figured')">
+          <input type="hidden" name="site" value="Just Figured" />
+          <div class="form-row">
+            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          </div>
+          <div class="field"><label>Subject</label><input type="text" name="subject" placeholder="What is it about?" /></div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Describe your question or issue…" required></textarea></div>
+          <div class="form-status" id="justfigured-form-status"></div>
+          <button type="submit" class="submit-btn" style="background:#E6B400; color:#111">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── justabook ── -->
+  <section class="project-section" id="justabook">
+    <div class="container">
+      <div class="project-top reveal">
+        <div class="project-logo-wrap">
+          <img src="/logo-jab.png" alt="justabook" />
+        </div>
+        <div class="project-meta">
+          <h2 class="project-name">just<span style="color:#111">abook</span></h2>
+          <p class="project-tagline">A clean, minimal document editor that gets out of your way. Write and organise without the noise.</p>
+          <a class="btn-visit" style="background:#1d1d1f" href="https://justabook.org" target="_blank" rel="noopener">Visit justabook.org</a>
+        </div>
+      </div>
+
+      <div class="features reveal">
+        <div class="feature-item">
+          <div class="feature-title">Distraction-free</div>
+          <p class="feature-desc">No toolbars fighting for attention. Just you and your words. The interface disappears when you write.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Organised by default</div>
+          <p class="feature-desc">Documents are structured and easy to navigate — without needing folders inside folders inside folders.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Built to last</div>
+          <p class="feature-desc">No bloat, no subscriptions, no lock-in. A writing tool that respects your time and your work.</p>
+        </div>
+      </div>
+
+      <div class="support-wrap reveal">
+        <div class="support-title">Support</div>
+        <p class="support-sub">A question about justabook? Get in touch.</p>
+        <form onsubmit="handleSubmit(event, 'justabook-form', 'Just A Book')">
+          <input type="hidden" name="site" value="Just A Book" />
+          <div class="form-row">
+            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+          </div>
+          <div class="field"><label>Subject</label><input type="text" name="subject" placeholder="What is it about?" /></div>
+          <div class="field"><label>Message</label><textarea name="message" placeholder="Describe your question or issue…" required></textarea></div>
+          <div class="form-status" id="justabook-form-status"></div>
+          <button type="submit" class="submit-btn" style="background:#1d1d1f">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
+      <a href="mailto:r.j.nieboer@outlook.com">r.j.nieboer@outlook.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    async function handleSubmit(e, formId, siteName) {
+      e.preventDefault();
+      const form = e.target;
+      const statusEl = document.getElementById(formId + '-status');
+      const btn = form.querySelector('button[type="submit"]');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      statusEl.style.display = 'none';
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject?.value || '',
+        message: form.message.value,
+        site: siteName,
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          statusEl.className = 'form-status success';
+          statusEl.textContent = 'Message sent. I\'ll get back to you as soon as possible.';
+          statusEl.style.display = 'block';
+          form.reset();
+        } else throw new Error();
+      } catch {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Something went wrong. Try again or email r.j.nieboer@outlook.com directly.';
+        statusEl.style.display = 'block';
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
+  </script>
+
+</body>
+</html>
