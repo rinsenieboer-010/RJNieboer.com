@@ -348,7 +348,7 @@
 
     .contact-inner {
       display: grid;
-      grid-template-columns: 1fr 160px;
+      grid-template-columns: 1fr auto;
       gap: 56px;
       align-items: center;
       max-width: var(--max);
@@ -356,8 +356,8 @@
     }
 
     .contact-photo {
-      width: 100%;
-      aspect-ratio: 3/4;
+      height: 200px;
+      width: auto;
       object-fit: cover;
       object-position: center top;
       border-radius: 16px;
