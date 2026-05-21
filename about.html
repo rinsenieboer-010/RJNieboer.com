@@ -129,20 +129,27 @@
     #photos { background: var(--surface); }
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 340px 420px;
       gap: 16px;
       margin-top: 48px;
     }
     .photo-grid img {
       width: 100%;
-      aspect-ratio: 3/4;
+      height: 100%;
       object-fit: cover;
-      object-position: top;
       border-radius: 12px;
       display: block;
     }
-    .photo-grid img:first-child {
-      aspect-ratio: 3/4;
+    .photo-grid img.full-width {
+      grid-column: 1 / -1;
+      object-position: center 30%;
+    }
+    .photo-grid img.tall-left {
+      object-position: center top;
+    }
+    .photo-grid img.right-bottom {
+      object-position: center center;
     }
 
     /* ── Interests ── */
@@ -263,9 +270,9 @@
         <h2 class="section-headline">In real life.</h2>
       </div>
       <div class="photo-grid reveal">
-        <img src="foto.png" alt="Rinse Nieboer" />
-        <img src="fottt.png" alt="Rinse Nieboer" />
-        <img src="gilet.png" alt="Rinse Nieboer" />
+        <img src="korfbal.png" class="full-width" alt="Korfball coaching" />
+        <img src="kerk.jpg" class="tall-left" alt="Rotterdam Laurenskerk" />
+        <img src="laptop.png" class="right-bottom" alt="Rinse Nieboer" />
       </div>
     </div>
   </section>
