@@ -44,7 +44,7 @@ const i18n = {
     'story.father': 'I\'m a dad. That changes everything — your priorities, your discipline, your reason to push harder. It\'s the most grounding thing in my life.',
     'story.building': 'I\'d rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that\'s the short version of my philosophy. I\'m genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what\'s possible and what most people use is enormous.',
     'story.study': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences, with a minor in <strong>Impact Investment Management</strong>. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently. I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn\'t a goal, it\'s a baseline.',
-    'story.rotterdam': 'Rotterdam shaped me. It\'s a city that doesn\'t care about appearances. It cares about what you build. <strong>010.</strong>',
+    'story.rotterdam': 'Rotterdam. My city — 010. Before entrepreneurship, I worked <strong>front of house and kitchen</strong>. Hospitality teaches you to stay sharp when the pressure is on.',
 
     'about.page.title': 'About Me',
     'photos.eyebrow': 'Photos',
@@ -171,7 +171,7 @@ const i18n = {
     'story.father': 'Ik ben een vader. Dat verandert alles — je prioriteiten, je discipline, je reden om harder te pushen. Het is het meest bepalende in mijn leven.',
     'story.building': 'Ik doe liever het werk en laat de resultaten spreken. <strong>Verantwoordelijkheid boven excuses</strong> — dat is de korte versie van mijn filosofie. Ik ben oprecht gefascineerd door wat AI kan — niet als hype, maar als praktisch gereedschap. Ik gebruik het dagelijks en bouw ermee. De kloof tussen wat mogelijk is en wat de meeste mensen gebruiken is enorm.',
     'story.study': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam, met een minor in <strong>Impact Investment Management</strong>. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik bijdroeg aan een AI-agent voor leadgeneratie — wat mijn drive aanwakkerde om zelfstandig te bouwen. Ik neem investeren serieus — ETF\'s, individuele aandelen, langetermijndenken. Financiële onafhankelijkheid is geen doel, het is een basis.',
-    'story.rotterdam': 'Rotterdam heeft me gevormd. Het is een stad die zich niks aantrekt van schijn. Het gaat om wat je bouwt. <strong>010.</strong>',
+    'story.rotterdam': 'Rotterdam. Mijn stad — 010. Voordat het ondernemerschap was, werkte ik in de <strong>bediening en keuken</strong>. De horeca leert je scherp blijven als de druk er is.',
 
     'about.page.title': 'Over Mij',
     'photos.eyebrow': 'Foto\'s',
