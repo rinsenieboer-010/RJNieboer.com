@@ -38,6 +38,7 @@ const i18n = {
     'contact.sub': 'Have a question, idea, or collaboration in mind?',
 
     'footer.copy': 'Copyright © 2026 Rinse Nieboer. All rights reserved.',
+    'cv.download': 'Download CV',
 
     'about.page.title': 'About Me',
     'photos.eyebrow': 'Photos',
@@ -158,6 +159,7 @@ const i18n = {
     'contact.sub': 'Heb je een vraag, idee of samenwerking in gedachten?',
 
     'footer.copy': 'Copyright © 2026 Rinse Nieboer. Alle rechten voorbehouden.',
+    'cv.download': 'CV downloaden',
 
     'about.page.title': 'Over Mij',
     'photos.eyebrow': 'Foto\'s',
