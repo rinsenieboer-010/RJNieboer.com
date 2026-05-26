@@ -151,7 +151,7 @@
     .photo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 340px 420px 340px;
+      grid-template-rows: 340px 420px 340px 420px 300px 420px 320px;
       gap: 16px;
       margin-top: 48px;
     }
@@ -164,13 +164,6 @@
     }
     .photo-grid img.full-width {
       grid-column: 1 / -1;
-      object-position: center 30%;
-    }
-    .photo-grid img.tall-left {
-      object-position: center top;
-    }
-    .photo-grid img.right-bottom {
-      object-position: center center;
     }
 
     /* ── Interests ── */
@@ -255,11 +248,19 @@
 
     @media (max-width: 734px) {
       .nav-links { display: none; }
-      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(7, 220px);
+      }
       .interests-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .photo-grid { grid-template-columns: 1fr; }
+      .photo-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+      .photo-grid img { height: 260px; }
+      .photo-grid img.full-width { grid-column: 1; }
     }
   </style>
 </head>
@@ -293,10 +294,16 @@
         <h2 class="section-headline" data-i18n="photos.headline">In real life.</h2>
       </div>
       <div class="photo-grid reveal">
-        <img src="korfbal.png" class="full-width" alt="Korfball coaching" />
-        <img src="kerk.jpg" class="tall-left" alt="Rotterdam Laurenskerk" />
-        <img src="fottt.png" class="right-bottom" alt="Rinse Nieboer" />
-        <img src="zrot.png" class="full-width" alt="Rotterdam" />
+        <img src="korfbal.png" class="full-width" alt="Korfball coaching" style="object-position: center 30%;" />
+        <img src="lucas.png" alt="Lucas" style="object-position: center center;" />
+        <img src="korfbal2.png" alt="Korfball" style="object-position: center 40%;" />
+        <img src="doop.png" class="full-width" alt="Doop" style="object-position: center center;" />
+        <img src="kerk.jpg" alt="Rotterdam Laurenskerk" style="object-position: center top;" />
+        <img src="nina.png" alt="Korfball coaching" style="object-position: center top;" />
+        <img src="hr.jpg" class="full-width" alt="Hogeschool Rotterdam" style="object-position: center center;" />
+        <img src="fottt.png" alt="Rinse Nieboer" style="object-position: center top;" />
+        <img src="dumomo.jpg" alt="Rinse Nieboer" style="object-position: center center;" />
+        <img src="zrot.png" class="full-width" alt="Rotterdam" style="object-position: center center;" />
       </div>
     </div>
   </section>
