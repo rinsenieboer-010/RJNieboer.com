@@ -78,7 +78,6 @@
     }
     .nav-links a:hover, .nav-links a.active { opacity: 1; }
 
-    /* ── Language switcher ── */
     .lang-switch {
       display: flex;
       align-items: center;
@@ -130,30 +129,44 @@
       color: var(--text);
     }
 
-    /* ── Editorial: full-width photo ── */
+    /* ── Intro text block ── */
+    .ed-intro {
+      padding: 80px 22px 72px;
+      background: var(--bg);
+    }
+    .ed-intro p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 22px;
+      line-height: 1.7;
+      color: var(--secondary);
+      letter-spacing: -0.01em;
+    }
+    .ed-intro strong { color: var(--text); font-weight: 500; }
+
+    /* ── Full-width photo: natural proportions, no cropping ── */
     .ed-full {
       display: block;
       width: 100%;
-      height: 480px;
-      object-fit: cover;
+      height: auto;
     }
 
-    /* ── Editorial: two-column (photo + text) ── */
+    /* ── Side-by-side: photo + text ── */
     .ed-item {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 560px;
     }
 
+    /* Photo fills its column at natural aspect ratio */
     .ed-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
+      width: 100%;
+      height: auto;
     }
 
+    /* Text panel stretches to match photo height, content centered */
     .ed-text {
-      padding: 72px 64px;
+      padding: 64px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -161,6 +174,17 @@
     .ed-text.surface { background: var(--surface); }
     .ed-text.white   { background: var(--bg); }
 
+    /* ── Standalone text block (no photo) ── */
+    .ed-text-block {
+      padding: 80px 22px;
+      background: var(--surface);
+    }
+    .ed-text-block p {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── Shared paragraph style ── */
     .ed-para {
       font-size: 19px;
       line-height: 1.75;
@@ -168,19 +192,6 @@
       max-width: 400px;
     }
     .ed-para strong { color: var(--text); font-weight: 500; }
-
-    /* ── Two-photo row (no text) ── */
-    .ed-duo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      height: 420px;
-    }
-    .ed-duo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
     /* ── Footer ── */
     footer {
@@ -207,27 +218,19 @@
     /* ── Reveal ── */
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ── Mobile ── */
     @media (max-width: 734px) {
       .nav-links { display: none; }
-
-      .ed-item {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      .ed-item .ed-photo { height: 300px; }
+      .ed-item { grid-template-columns: 1fr; }
       .ed-text { padding: 44px 28px; }
       .ed-para { max-width: 100%; font-size: 17px; }
-
-      .ed-full { height: 280px; }
-
-      .ed-duo { grid-template-columns: 1fr; height: auto; }
-      .ed-duo img { height: 260px; }
+      .ed-intro p { font-size: 19px; }
+      .ed-text-block p { font-size: 17px; }
     }
   </style>
 </head>
@@ -259,55 +262,60 @@
     </a>
   </div>
 
-  <!-- 1. Brede opener: coaching jeugd -->
-  <img src="korfbal.png" class="ed-full reveal" alt="Korfball coaching" style="object-position: center 30%;" />
+  <!-- Intro: wie ik ben, voordat de foto's beginnen -->
+  <div class="ed-intro reveal">
+    <p data-i18n-html="mindset.p1">I'm not the loudest person in the room. I don't need to be. I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy.</p>
+  </div>
 
-  <!-- 2. Korfbal actie links · korfbal tekst rechts -->
+  <!-- Portret van Rinse: visuele introductie -->
+  <img src="fottt.png" class="ed-full reveal" alt="Rinse Nieboer" style="object-position: center top;" />
+
+  <!-- Korfbal coaching: brede opener -->
+  <img src="korfbal.png" class="ed-full reveal" alt="Korfball coaching" />
+
+  <!-- Korfbal actie links · korfbal tekst rechts -->
   <div class="ed-item reveal">
-    <img src="korfbal2.png" class="ed-photo" alt="Korfball" style="object-position: center 40%;" />
+    <img src="korfbal2.png" class="ed-photo" alt="Korfball" />
     <div class="ed-text surface">
       <p class="ed-para" data-i18n="story.korfball">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field — not in the boardroom.</p>
     </div>
   </div>
 
-  <!-- 3. Vader tekst links · babyfoto rechts -->
+  <!-- Vader tekst links · stiefdochter rechts -->
   <div class="ed-item reveal">
     <div class="ed-text white">
       <p class="ed-para" data-i18n="story.father">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
     </div>
-    <img src="lucas.png" class="ed-photo" alt="Lucas" style="object-position: center center;" />
+    <img src="nina.png" class="ed-photo" alt="Nina" />
   </div>
 
-  <!-- 4. Brede foto: doop -->
-  <img src="doop.png" class="ed-full reveal" alt="Doop" style="object-position: center 40%;" />
+  <!-- Zoon Lucas: brede foto -->
+  <img src="lucas.png" class="ed-full reveal" alt="Lucas" />
 
-  <!-- 5. Nina foto links · coaching tekst rechts -->
-  <div class="ed-item reveal">
-    <img src="nina.png" class="ed-photo" alt="Korfball coaching" style="object-position: center top;" />
-    <div class="ed-text surface">
-      <p class="ed-para" data-i18n-html="story.building">I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy. I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it.</p>
-    </div>
+  <!-- Doop: brede foto, familie thema -->
+  <img src="doop.png" class="ed-full reveal" alt="Doop" />
+
+  <!-- Hogeschool Rotterdam: brede foto -->
+  <img src="hr.jpg" class="ed-full reveal" alt="Hogeschool Rotterdam" />
+
+  <!-- Studie + investeren: losstaand tekstblok -->
+  <div class="ed-text-block reveal">
+    <p class="ed-para" data-i18n-html="story.study">I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences, with a minor in <strong>Impact Investment Management</strong>. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently. I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline.</p>
   </div>
 
-  <!-- 6. Portret tekst links · portret rechts -->
+  <!-- AI & bouwen tekst links · foto rechts -->
   <div class="ed-item reveal">
     <div class="ed-text white">
-      <p class="ed-para" data-i18n-html="story.study">I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences, with a minor in <strong>Impact Investment Management</strong>. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently. I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline.</p>
+      <p class="ed-para" data-i18n-html="story.building">I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy. I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it.</p>
     </div>
-    <img src="fottt.png" class="ed-photo" alt="Rinse Nieboer" style="object-position: center top;" />
+    <img src="dumomo.jpg" class="ed-photo" alt="Rinse Nieboer" />
   </div>
 
-  <!-- 7. Brede foto: Hogeschool Rotterdam -->
-  <img src="hr.jpg" class="ed-full reveal" alt="Hogeschool Rotterdam" style="object-position: center 55%;" />
+  <!-- Laurenskerk Rotterdam: brede foto -->
+  <img src="kerk.jpg" class="ed-full reveal" alt="Rotterdam Laurenskerk" />
 
-  <!-- 8. Foto duo: dumomo + kerk -->
-  <div class="ed-duo reveal">
-    <img src="dumomo.jpg" alt="Rinse Nieboer" style="object-position: center center;" />
-    <img src="kerk.jpg" alt="Rotterdam Laurenskerk" style="object-position: center top;" />
-  </div>
-
-  <!-- 9. Brede finale: Rotterdam -->
-  <img src="zrot.png" class="ed-full reveal" alt="Rotterdam" style="object-position: center center;" />
+  <!-- Rotterdam skyline: afsluiter -->
+  <img src="zrot.png" class="ed-full reveal" alt="Rotterdam" />
 
   <footer>
     <div class="footer-inner">
@@ -325,7 +333,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.06 });
+    }, { threshold: 0.05 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 
