@@ -86,6 +86,27 @@
     }
     .nav-links a:hover { opacity: 1; }
 
+    /* ── Language switcher ── */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 20px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 3px 5px;
+      border-radius: 6px;
+      opacity: 0.4;
+      transition: opacity 0.15s, background 0.15s;
+      line-height: 1;
+    }
+    .lang-btn:hover { opacity: 0.75; background: rgba(0,0,0,0.06); }
+    .lang-btn.active { opacity: 1; }
+
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
@@ -142,35 +163,6 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.45s ease forwards;
     }
-
-    .hero-actions {
-      margin-top: 36px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.6s ease forwards;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 22px;
-      border-radius: 980px;
-      font-size: 17px;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .btn-blue { background: var(--accent); color: #fff; }
-    .btn-blue:hover { background: var(--accent-hover); }
-
-    .btn-ghost { color: var(--accent); }
-    .btn-ghost::after { content: ' ›'; margin-left: 1px; }
-    .btn-ghost:hover { color: var(--accent-hover); }
 
     /* ── Section base ── */
     .section { padding: 100px 22px; }
@@ -443,7 +435,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Mobile ── */
     /* ── Project logo ── */
     .project-logo {
       margin-bottom: 4px;
@@ -454,6 +445,7 @@
       display: block;
     }
 
+    /* ── Mobile ── */
     @media (max-width: 734px) {
       .nav-links { display: none; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -473,7 +465,6 @@
       justify-content: center;
       margin-top: 48px;
       opacity: 0;
-      animation: fadeUp 0.7s 0.75s ease forwards;
       text-decoration: none;
       animation-name: arrowBounce;
       animation-duration: 2s;
@@ -493,19 +484,23 @@
     <div class="nav-inner">
       <a class="nav-logo" href="/">Rinse Nieboer</a>
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Me</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/about" data-i18n="nav.about">About Me</a></li>
+        <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" title="English">🇬🇧</button>
+        <button class="lang-btn" data-lang="nl" title="Nederlands">🇳🇱</button>
+      </div>
     </div>
   </nav>
 
   <!-- ── Hero ── -->
   <section class="hero">
-    <p class="hero-eyebrow">Rotterdam · Entrepreneur · Builder</p>
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Rotterdam · Entrepreneur · Builder</p>
     <h1 class="hero-name">Rinse Nieboer</h1>
-    <p class="hero-tagline">Building practical tools and platforms — independently, from scratch, built to last.</p>
+    <p class="hero-tagline" data-i18n="hero.tagline">Building practical tools and platforms — independently, from scratch, built to last.</p>
     <a class="hero-arrow" href="#about" aria-label="Scroll down">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line x1="16" y1="6" x2="16" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -518,8 +513,8 @@
   <section class="section" id="about">
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">About</p>
-        <h2 class="section-headline">Who I am.</h2>
+        <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+        <h2 class="section-headline" data-i18n="about.headline">Who I am.</h2>
       </div>
       <div class="about-grid">
         <div class="reveal">
@@ -529,32 +524,32 @@
           <div class="about-stats">
             <div>
               <div class="stat-value">21</div>
-              <div class="stat-label">Years old</div>
+              <div class="stat-label" data-i18n="stat.age">Years old</div>
             </div>
             <div>
               <div class="stat-value">4</div>
-              <div class="stat-label">Live products</div>
+              <div class="stat-label" data-i18n="stat.products">Live products</div>
             </div>
             <div>
               <div class="stat-value">010</div>
-              <div class="stat-label">Rotterdam</div>
+              <div class="stat-label" data-i18n="stat.city">Rotterdam</div>
             </div>
             <div>
               <div class="stat-value">—</div>
-              <div class="stat-label">Always building</div>
+              <div class="stat-label" data-i18n="stat.always">Always building</div>
             </div>
           </div>
         </div>
         <div class="about-body reveal">
-          <p>I'm <strong>Rinse Nieboer</strong> — a 21-year-old entrepreneur and builder from Rotterdam. Independent mindset, composed under pressure, and accountable for everything I do.</p>
+          <p data-i18n-html="about.body">I'm <strong>Rinse Nieboer</strong> — a 21-year-old entrepreneur and builder from Rotterdam. Independent mindset, composed under pressure, and accountable for everything I do.</p>
           <div class="tags">
-            <span class="tag">Entrepreneurship</span>
-            <span class="tag">Product building</span>
-            <span class="tag">AI &amp; automation</span>
-            <span class="tag">Investment</span>
-            <span class="tag">Coaching</span>
-            <span class="tag">Korfball</span>
-            <span class="tag">Rotterdam</span>
+            <span class="tag" data-i18n="tag.entrepreneurship">Entrepreneurship</span>
+            <span class="tag" data-i18n="tag.product">Product building</span>
+            <span class="tag" data-i18n="tag.ai">AI &amp; automation</span>
+            <span class="tag" data-i18n="tag.investment">Investment</span>
+            <span class="tag" data-i18n="tag.coaching">Coaching</span>
+            <span class="tag" data-i18n="tag.korfball">Korfball</span>
+            <span class="tag" data-i18n="tag.rotterdam">Rotterdam</span>
           </div>
         </div>
       </div>
@@ -565,49 +560,49 @@
   <section class="section" id="projects">
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">Projects</p>
-        <h2 class="section-headline">What I've built.</h2>
-        <p class="section-sub">Four products, built independently. Each solves a real problem.</p>
+        <p class="eyebrow" data-i18n="projects.eyebrow">Projects</p>
+        <h2 class="section-headline" data-i18n="projects.headline">What I've built.</h2>
+        <p class="section-sub" data-i18n="projects.sub">Four products, built independently. Each solves a real problem.</p>
       </div>
       <div class="projects-grid">
 
         <div class="project-card reveal">
           <div class="project-logo"><img src="logo-jmp.png" alt="justmyplan logo" /></div>
           <div class="project-name">just<span>myplan</span></div>
-          <p class="project-desc">Smart planner — tasks, calendar and AI in one place.</p>
+          <p class="project-desc" data-i18n="jmp.desc">Smart planner — tasks, calendar and AI in one place.</p>
           <div class="project-links">
-            <a class="project-visit" href="https://justmyplan.com" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/projects#justmyplan">More →</a>
+            <a class="project-visit" href="https://justmyplan.com" target="_blank" rel="noopener" data-i18n="project.visit">Visit</a>
+            <a class="project-support" href="/projects#justmyplan" data-i18n="project.more">More →</a>
           </div>
         </div>
 
         <div class="project-card reveal">
           <div class="project-logo"><img src="logo-jap.png" alt="justanopinion logo" /></div>
           <div class="project-name">just<span>anopinion</span></div>
-          <p class="project-desc">Sharp opinions on entrepreneurship, tech and the world.</p>
+          <p class="project-desc" data-i18n="jap.desc">Sharp opinions on entrepreneurship, tech and the world.</p>
           <div class="project-links">
-            <a class="project-visit" href="https://justanopinion.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/projects#justanopinion">More →</a>
+            <a class="project-visit" href="https://justanopinion.org" target="_blank" rel="noopener" data-i18n="project.visit">Visit</a>
+            <a class="project-support" href="/projects#justanopinion" data-i18n="project.more">More →</a>
           </div>
         </div>
 
         <div class="project-card reveal">
           <div class="project-logo"><img src="logo-jf.png" alt="justfigured logo" /></div>
           <div class="project-name">just<span>figured</span></div>
-          <p class="project-desc">Real lessons from real experience — no shortcuts.</p>
+          <p class="project-desc" data-i18n="jf.desc">Real lessons from real experience — no shortcuts.</p>
           <div class="project-links">
-            <a class="project-visit" href="https://justfigured.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/projects#justfigured">More →</a>
+            <a class="project-visit" href="https://justfigured.org" target="_blank" rel="noopener" data-i18n="project.visit">Visit</a>
+            <a class="project-support" href="/projects#justfigured" data-i18n="project.more">More →</a>
           </div>
         </div>
 
         <div class="project-card reveal">
           <div class="project-logo"><img src="logo-jab.png" alt="justabook logo" /></div>
           <div class="project-name">just<span>abook</span></div>
-          <p class="project-desc">Clean document editor — write without the noise.</p>
+          <p class="project-desc" data-i18n="jab.desc">Clean document editor — write without the noise.</p>
           <div class="project-links">
-            <a class="project-visit" href="https://justabook.org" target="_blank" rel="noopener">Visit</a>
-            <a class="project-support" href="/projects#justabook">More →</a>
+            <a class="project-visit" href="https://justabook.org" target="_blank" rel="noopener" data-i18n="project.visit">Visit</a>
+            <a class="project-support" href="/projects#justabook" data-i18n="project.more">More →</a>
           </div>
         </div>
 
@@ -619,9 +614,9 @@
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-info reveal">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-headline">Get in touch.</h2>
-        <p class="section-sub">Have a question, idea, or collaboration in mind?</p>
+        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+        <h2 class="section-headline" data-i18n="contact.headline">Get in touch.</h2>
+        <p class="section-sub" data-i18n="contact.sub">Have a question, idea, or collaboration in mind?</p>
         <div class="contact-details">
           <div class="contact-item">
             <div class="contact-icon">
@@ -648,11 +643,12 @@
   <!-- ── Footer ── -->
   <footer>
     <div class="footer-inner">
-      <p>Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
+      <p data-i18n="footer.copy">Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
       <a href="mailto:r.j.nieboer@outlook.com">r.j.nieboer@outlook.com</a>
     </div>
   </footer>
 
+  <script src="/lang.js"></script>
   <script>
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {

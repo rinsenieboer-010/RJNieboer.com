@@ -77,6 +77,27 @@
     }
     .nav-links a:hover, .nav-links a.active { opacity: 1; }
 
+    /* ── Language switcher ── */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 20px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 3px 5px;
+      border-radius: 6px;
+      opacity: 0.4;
+      transition: opacity 0.15s, background 0.15s;
+      line-height: 1;
+    }
+    .lang-btn:hover { opacity: 0.75; background: rgba(0,0,0,0.06); }
+    .lang-btn.active { opacity: 1; }
+
     /* ── Page header ── */
     .page-header {
       padding: calc(var(--nav-h) + 80px) 22px 60px;
@@ -248,24 +269,28 @@
     <div class="nav-inner">
       <a class="nav-logo" href="/">Rinse Nieboer</a>
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about" class="active">About Me</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/about" class="active" data-i18n="nav.about">About Me</a></li>
+        <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" title="English">🇬🇧</button>
+        <button class="lang-btn" data-lang="nl" title="Nederlands">🇳🇱</button>
+      </div>
     </div>
   </nav>
 
   <div class="page-header">
-    <h1 class="page-title">About Me</h1>
+    <h1 class="page-title" data-i18n="about.page.title">About Me</h1>
   </div>
 
   <!-- Photos -->
   <section class="section" id="photos">
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">Photos</p>
-        <h2 class="section-headline">In real life.</h2>
+        <p class="eyebrow" data-i18n="photos.eyebrow">Photos</p>
+        <h2 class="section-headline" data-i18n="photos.headline">In real life.</h2>
       </div>
       <div class="photo-grid reveal">
         <img src="korfbal.png" class="full-width" alt="Korfball coaching" />
@@ -280,45 +305,45 @@
   <section class="section" id="interests">
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">Interests</p>
-        <h2 class="section-headline">What keeps me going.</h2>
+        <p class="eyebrow" data-i18n="interests.eyebrow">Interests</p>
+        <h2 class="section-headline" data-i18n="interests.headline">What keeps me going.</h2>
       </div>
       <div class="interests-grid">
 
         <div class="interest-card reveal">
           <span class="interest-icon">🏐</span>
-          <div class="interest-title">Korfball</div>
-          <p class="interest-desc">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field.</p>
+          <div class="interest-title" data-i18n="korfball.title">Korfball</div>
+          <p class="interest-desc" data-i18n="korfball.desc">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field.</p>
         </div>
 
         <div class="interest-card reveal">
           <span class="interest-icon">♟</span>
-          <div class="interest-title">Chess</div>
-          <p class="interest-desc">Chess teaches me to think several moves ahead and stay calm under pressure. The same mindset I bring to business decisions and product design.</p>
+          <div class="interest-title" data-i18n="chess.title">Chess</div>
+          <p class="interest-desc" data-i18n="chess.desc">Chess teaches me to think several moves ahead and stay calm under pressure. The same mindset I bring to business decisions and product design.</p>
         </div>
 
         <div class="interest-card reveal">
           <span class="interest-icon">📈</span>
-          <div class="interest-title">Investing</div>
-          <p class="interest-desc">I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline. I manage portfolios for myself and my family.</p>
+          <div class="interest-title" data-i18n="investing.title">Investing</div>
+          <p class="interest-desc" data-i18n="investing.desc">I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline. I manage portfolios for myself and my family.</p>
         </div>
 
         <div class="interest-card reveal">
           <span class="interest-icon">👶</span>
-          <div class="interest-title">Father</div>
-          <p class="interest-desc">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
+          <div class="interest-title" data-i18n="father.title">Father</div>
+          <p class="interest-desc" data-i18n="father.desc">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
         </div>
 
         <div class="interest-card reveal">
           <span class="interest-icon">🏋️</span>
-          <div class="interest-title">Training</div>
-          <p class="interest-desc">I train consistently. Physical discipline feeds mental discipline. Showing up when you don't feel like it is a skill, and you build it in the gym before anywhere else.</p>
+          <div class="interest-title" data-i18n="training.title">Training</div>
+          <p class="interest-desc" data-i18n="training.desc">I train consistently. Physical discipline feeds mental discipline. Showing up when you don't feel like it is a skill, and you build it in the gym before anywhere else.</p>
         </div>
 
         <div class="interest-card reveal">
           <span class="interest-icon">🤖</span>
-          <div class="interest-title">AI & Automation</div>
-          <p class="interest-desc">I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what's possible and what most people use is enormous.</p>
+          <div class="interest-title" data-i18n="ai.title">AI & Automation</div>
+          <p class="interest-desc" data-i18n="ai.desc">I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what's possible and what most people use is enormous.</p>
         </div>
 
       </div>
@@ -329,25 +354,26 @@
   <section class="section" id="mindset">
     <div class="container">
       <div class="reveal">
-        <p class="eyebrow">Mindset</p>
-        <h2 class="section-headline">How I think.</h2>
+        <p class="eyebrow" data-i18n="mindset.eyebrow">Mindset</p>
+        <h2 class="section-headline" data-i18n="mindset.headline">How I think.</h2>
       </div>
       <div class="mindset-body reveal">
-        <p>I'm not the loudest person in the room. I don't need to be. I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy.</p>
-        <p>I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking and my ability to make decisions clearly. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently.</p>
-        <p>Outside of building: I coach youth korfball at <strong>OZC Rotterdam</strong>, train as an athlete, play chess, and invest. I'm also a father. I bring the same mindset to everything — structure, accountability, and the discipline to see things through.</p>
-        <p>Rotterdam shaped me. It's a city that doesn't care about appearances. It cares about what you build. <strong>010.</strong></p>
+        <p data-i18n-html="mindset.p1">I'm not the loudest person in the room. I don't need to be. I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy.</p>
+        <p data-i18n-html="mindset.p2">I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking and my ability to make decisions clearly. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently.</p>
+        <p data-i18n-html="mindset.p3">Outside of building: I coach youth korfball at <strong>OZC Rotterdam</strong>, train as an athlete, play chess, and invest. I'm also a father. I bring the same mindset to everything — structure, accountability, and the discipline to see things through.</p>
+        <p data-i18n-html="mindset.p4">Rotterdam shaped me. It's a city that doesn't care about appearances. It cares about what you build. <strong>010.</strong></p>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <p>Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
+      <p data-i18n="footer.copy">Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
       <a href="mailto:r.j.nieboer@outlook.com">r.j.nieboer@outlook.com</a>
     </div>
   </footer>
 
+  <script src="/lang.js"></script>
   <script>
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {

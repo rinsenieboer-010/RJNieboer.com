@@ -75,6 +75,27 @@
     }
     .nav-links a:hover, .nav-links a.active { opacity: 1; }
 
+    /* ── Language switcher ── */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 20px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 3px 5px;
+      border-radius: 6px;
+      opacity: 0.4;
+      transition: opacity 0.15s, background 0.15s;
+      line-height: 1;
+    }
+    .lang-btn:hover { opacity: 0.75; background: rgba(0,0,0,0.06); }
+    .lang-btn.active { opacity: 1; }
+
     /* ── Page header ── */
     .page-header {
       padding: calc(var(--nav-h) + 80px) 22px 60px;
@@ -214,7 +235,7 @@
       text-transform: uppercase;
       color: var(--secondary);
     }
-    input, textarea {
+    input, textarea, select {
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 10px 14px;
@@ -227,7 +248,7 @@
       width: 100%;
       resize: none;
     }
-    input:focus, textarea:focus { border-color: #0071e3; }
+    input:focus, textarea:focus, select:focus { border-color: #0071e3; }
     textarea { min-height: 120px; }
 
     .submit-btn {
@@ -301,18 +322,22 @@
     <div class="nav-inner">
       <a class="nav-logo" href="/">Rinse Nieboer</a>
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Me</a></li>
-        <li><a href="/projects" class="active">Projects</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/about" data-i18n="nav.about">About Me</a></li>
+        <li><a href="/projects" class="active" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en" title="English">🇬🇧</button>
+        <button class="lang-btn" data-lang="nl" title="Nederlands">🇳🇱</button>
+      </div>
     </div>
   </nav>
 
   <div class="page-header">
-    <p class="page-eyebrow">Projects</p>
-    <h1 class="page-title">What I've built.</h1>
-    <p class="page-sub">Four products, built independently. Each solves a real problem.</p>
+    <p class="page-eyebrow" data-i18n="projects.page.eyebrow">Projects</p>
+    <h1 class="page-title" data-i18n="projects.page.headline">What I've built.</h1>
+    <p class="page-sub" data-i18n="projects.page.sub">Four products, built independently. Each solves a real problem.</p>
   </div>
 
   <!-- ── justmyplan ── -->
@@ -324,22 +349,22 @@
         </div>
         <div class="project-meta">
           <h2 class="project-name">just<span style="color:#2563EB">myplan</span></h2>
-          <p class="project-tagline">A smart productivity planner that combines tasks, calendar, and AI — so you can focus on what matters.</p>
-          <a class="btn-visit" style="background:#2563EB" href="https://justmyplan.com" target="_blank" rel="noopener">Visit justmyplan.com</a>
+          <p class="project-tagline" data-i18n="jmp.tagline">A smart productivity planner that combines tasks, calendar, and AI — so you can focus on what matters.</p>
+          <a class="btn-visit" style="background:#2563EB" href="https://justmyplan.com" target="_blank" rel="noopener" data-i18n="jmp.visit">Visit justmyplan.com</a>
         </div>
       </div>
       <div class="features reveal">
         <div class="feature-item">
-          <div class="feature-title">Tasks + Calendar</div>
-          <p class="feature-desc">Everything in one place. No switching between apps, no losing track of what's due.</p>
+          <div class="feature-title" data-i18n="jmp.f1.title">Tasks + Calendar</div>
+          <p class="feature-desc" data-i18n="jmp.f1.desc">Everything in one place. No switching between apps, no losing track of what's due.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">AI Assistant</div>
-          <p class="feature-desc">Built-in AI helps you plan smarter — prioritise, reschedule, and cut through the noise.</p>
+          <div class="feature-title" data-i18n="jmp.f2.title">AI Assistant</div>
+          <p class="feature-desc" data-i18n="jmp.f2.desc">Built-in AI helps you plan smarter — prioritise, reschedule, and cut through the noise.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Clean interface</div>
-          <p class="feature-desc">Designed to get out of your way. No clutter, no complexity — just a clear view of your day.</p>
+          <div class="feature-title" data-i18n="jmp.f3.title">Clean interface</div>
+          <p class="feature-desc" data-i18n="jmp.f3.desc">Designed to get out of your way. No clutter, no complexity — just a clear view of your day.</p>
         </div>
       </div>
     </div>
@@ -354,22 +379,22 @@
         </div>
         <div class="project-meta">
           <h2 class="project-name">just<span style="color:#111">abook</span></h2>
-          <p class="project-tagline">A clean, minimal document editor that gets out of your way. Write and organise without the noise.</p>
-          <a class="btn-visit" style="background:#1d1d1f" href="https://justabook.org" target="_blank" rel="noopener">Visit justabook.org</a>
+          <p class="project-tagline" data-i18n="jab.tagline">A clean, minimal document editor that gets out of your way. Write and organise without the noise.</p>
+          <a class="btn-visit" style="background:#1d1d1f" href="https://justabook.org" target="_blank" rel="noopener" data-i18n="jab.visit">Visit justabook.org</a>
         </div>
       </div>
       <div class="features reveal">
         <div class="feature-item">
-          <div class="feature-title">Distraction-free</div>
-          <p class="feature-desc">No toolbars fighting for attention. Just you and your words. The interface disappears when you write.</p>
+          <div class="feature-title" data-i18n="jab.f1.title">Distraction-free</div>
+          <p class="feature-desc" data-i18n="jab.f1.desc">No toolbars fighting for attention. Just you and your words. The interface disappears when you write.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Organised by default</div>
-          <p class="feature-desc">Documents are structured and easy to navigate — without needing folders inside folders inside folders.</p>
+          <div class="feature-title" data-i18n="jab.f2.title">Organised by default</div>
+          <p class="feature-desc" data-i18n="jab.f2.desc">Documents are structured and easy to navigate — without needing folders inside folders inside folders.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Built to last</div>
-          <p class="feature-desc">No bloat, no subscriptions, no lock-in. A writing tool that respects your time and your work.</p>
+          <div class="feature-title" data-i18n="jab.f3.title">Built to last</div>
+          <p class="feature-desc" data-i18n="jab.f3.desc">No bloat, no subscriptions, no lock-in. A writing tool that respects your time and your work.</p>
         </div>
       </div>
     </div>
@@ -384,22 +409,22 @@
         </div>
         <div class="project-meta">
           <h2 class="project-name">just<span style="color:#DC2626">anopinion</span></h2>
-          <p class="project-tagline">Sharp, honest takes on entrepreneurship, technology, and the world. No noise — just a clear point of view.</p>
-          <a class="btn-visit" style="background:#DC2626" href="https://justanopinion.org" target="_blank" rel="noopener">Visit justanopinion.org</a>
+          <p class="project-tagline" data-i18n="jap.tagline">Sharp, honest takes on entrepreneurship, technology, and the world. No noise — just a clear point of view.</p>
+          <a class="btn-visit" style="background:#DC2626" href="https://justanopinion.org" target="_blank" rel="noopener" data-i18n="jap.visit">Visit justanopinion.org</a>
         </div>
       </div>
       <div class="features reveal">
         <div class="feature-item">
-          <div class="feature-title">No consensus</div>
-          <p class="feature-desc">Opinions that actually take a position. Not balanced for the sake of it — honest, direct, sometimes uncomfortable.</p>
+          <div class="feature-title" data-i18n="jap.f1.title">No consensus</div>
+          <p class="feature-desc" data-i18n="jap.f1.desc">Opinions that actually take a position. Not balanced for the sake of it — honest, direct, sometimes uncomfortable.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Entrepreneurship focus</div>
-          <p class="feature-desc">Real talk about building businesses, making decisions, and what nobody tells you about going independent.</p>
+          <div class="feature-title" data-i18n="jap.f2.title">Entrepreneurship focus</div>
+          <p class="feature-desc" data-i18n="jap.f2.desc">Real talk about building businesses, making decisions, and what nobody tells you about going independent.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Clean reading</div>
-          <p class="feature-desc">Minimal design, maximum focus on the writing. No distractions between you and the content.</p>
+          <div class="feature-title" data-i18n="jap.f3.title">Clean reading</div>
+          <p class="feature-desc" data-i18n="jap.f3.desc">Minimal design, maximum focus on the writing. No distractions between you and the content.</p>
         </div>
       </div>
     </div>
@@ -414,22 +439,22 @@
         </div>
         <div class="project-meta">
           <h2 class="project-name">just<span style="color:#E6B400">figured</span></h2>
-          <p class="project-tagline">Lessons from real experience — for entrepreneurs still figuring things out. Honest, direct, no shortcuts.</p>
-          <a class="btn-visit" style="background:#E6B400; color:#111" href="https://justfigured.org" target="_blank" rel="noopener">Visit justfigured.org</a>
+          <p class="project-tagline" data-i18n="jf.tagline">Lessons from real experience — for entrepreneurs still figuring things out. Honest, direct, no shortcuts.</p>
+          <a class="btn-visit" style="background:#E6B400; color:#111" href="https://justfigured.org" target="_blank" rel="noopener" data-i18n="jf.visit">Visit justfigured.org</a>
         </div>
       </div>
       <div class="features reveal">
         <div class="feature-item">
-          <div class="feature-title">Real experience</div>
-          <p class="feature-desc">Not theory. Not recycled advice. Things I actually figured out, often the hard way.</p>
+          <div class="feature-title" data-i18n="jf.f1.title">Real experience</div>
+          <p class="feature-desc" data-i18n="jf.f1.desc">Not theory. Not recycled advice. Things I actually figured out, often the hard way.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">For builders</div>
-          <p class="feature-desc">Aimed at people who are in the middle of building something — not just thinking about it.</p>
+          <div class="feature-title" data-i18n="jf.f2.title">For builders</div>
+          <p class="feature-desc" data-i18n="jf.f2.desc">Aimed at people who are in the middle of building something — not just thinking about it.</p>
         </div>
         <div class="feature-item">
-          <div class="feature-title">Scannable format</div>
-          <p class="feature-desc">Short, direct insights. No padding, no filler. Read it in 2 minutes, apply it the same day.</p>
+          <div class="feature-title" data-i18n="jf.f3.title">Scannable format</div>
+          <p class="feature-desc" data-i18n="jf.f3.desc">Short, direct insights. No padding, no filler. Read it in 2 minutes, apply it the same day.</p>
         </div>
       </div>
     </div>
@@ -439,30 +464,42 @@
   <section style="padding: 100px 22px; background: var(--surface); border-top: 1px solid var(--border);">
     <div class="container">
       <div class="reveal">
-        <p style="font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--secondary);margin-bottom:10px;">Support</p>
-        <h2 style="font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.07;margin-bottom:12px;">A question or issue?</h2>
-        <p style="font-size:17px;color:var(--secondary);margin-bottom:40px;">Send a message and I'll get back to you as soon as possible.</p>
+        <p style="font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--secondary);margin-bottom:10px;" data-i18n="support.eyebrow">Support</p>
+        <h2 style="font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.07;margin-bottom:12px;" data-i18n="support.headline">A question or issue?</h2>
+        <p style="font-size:17px;color:var(--secondary);margin-bottom:40px;" data-i18n="support.sub">Send a message and I'll get back to you as soon as possible.</p>
       </div>
       <div class="support-wrap reveal">
         <form onsubmit="handleSubmit(event, 'support-form')">
           <div class="form-row">
-            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required /></div>
-            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required /></div>
+            <div class="field">
+              <label data-i18n="form.name">Name</label>
+              <input type="text" name="name" data-i18n-ph="form.name.ph" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label data-i18n="form.email.label">Email</label>
+              <input type="email" name="email" data-i18n-ph="form.email.ph" placeholder="you@email.com" required />
+            </div>
           </div>
           <div class="field">
-            <label>Project</label>
-            <select name="site" style="border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:15px;font-family:inherit;color:var(--text);background:var(--bg);outline:none;width:100%;transition:border-color 0.2s;">
-              <option value="">Select a project…</option>
+            <label data-i18n="form.project">Project</label>
+            <select name="site">
+              <option value="" data-i18n="form.project.ph">Select a project…</option>
               <option value="Just My Plan">Just My Plan</option>
               <option value="Just A Book">Just A Book</option>
               <option value="Just An Opinion">Just An Opinion</option>
               <option value="Just Figured">Just Figured</option>
             </select>
           </div>
-          <div class="field"><label>Subject</label><input type="text" name="subject" placeholder="What is it about?" /></div>
-          <div class="field"><label>Message</label><textarea name="message" placeholder="Describe your question or issue…" required></textarea></div>
+          <div class="field">
+            <label data-i18n="form.subject">Subject</label>
+            <input type="text" name="subject" data-i18n-ph="form.subject.ph" placeholder="What is it about?" />
+          </div>
+          <div class="field">
+            <label data-i18n="form.message">Message</label>
+            <textarea name="message" data-i18n-ph="form.message.ph" placeholder="Describe your question or issue…" required></textarea>
+          </div>
           <div class="form-status" id="support-form-status"></div>
-          <button type="submit" class="submit-btn">Send message</button>
+          <button type="submit" class="submit-btn" data-i18n="form.send">Send message</button>
         </form>
       </div>
     </div>
@@ -470,11 +507,12 @@
 
   <footer>
     <div class="footer-inner">
-      <p>Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
+      <p data-i18n="footer.copy">Copyright &copy; 2026 Rinse Nieboer. All rights reserved.</p>
       <a href="mailto:r.j.nieboer@outlook.com">r.j.nieboer@outlook.com</a>
     </div>
   </footer>
 
+  <script src="/lang.js"></script>
   <script>
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -491,9 +529,10 @@
       const form = e.target;
       const statusEl = document.getElementById(formId + '-status');
       const btn = form.querySelector('button[type="submit"]');
+      const t = window.i18n[window.currentLang || 'en'];
 
       btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.textContent = t['form.sending'];
       statusEl.style.display = 'none';
 
       const data = {
@@ -512,18 +551,18 @@
         });
         if (res.ok) {
           statusEl.className = 'form-status success';
-          statusEl.textContent = 'Message sent. I\'ll get back to you as soon as possible.';
+          statusEl.textContent = t['form.success'];
           statusEl.style.display = 'block';
           form.reset();
         } else throw new Error();
       } catch {
         statusEl.className = 'form-status error';
-        statusEl.textContent = 'Something went wrong. Try again or email r.j.nieboer@outlook.com directly.';
+        statusEl.textContent = t['form.error'];
         statusEl.style.display = 'block';
       }
 
       btn.disabled = false;
-      btn.textContent = 'Send message';
+      btn.textContent = t['form.send'];
     }
   </script>
 
