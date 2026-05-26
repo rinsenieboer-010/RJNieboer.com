@@ -130,18 +130,19 @@
       color: var(--text);
     }
 
-    /* ── Editorial layout ── */
-    .editorial-full {
+    /* ── Editorial: full-width photo ── */
+    .ed-full {
       display: block;
       width: 100%;
-      height: 460px;
+      height: 480px;
       object-fit: cover;
     }
 
-    .editorial-item {
+    /* ── Editorial: two-column (photo + text) ── */
+    .ed-item {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 540px;
+      min-height: 560px;
     }
 
     .ed-photo {
@@ -152,7 +153,7 @@
     }
 
     .ed-text {
-      padding: 72px 60px;
+      padding: 72px 64px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -160,60 +161,26 @@
     .ed-text.surface { background: var(--surface); }
     .ed-text.white   { background: var(--bg); }
 
-    .ed-icon {
-      font-size: 42px;
-      margin-bottom: 22px;
-      display: block;
-    }
-
-    .ed-title {
-      font-size: clamp(24px, 3vw, 34px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-
-    .ed-desc {
-      font-size: 16px;
-      line-height: 1.7;
+    .ed-para {
+      font-size: 19px;
+      line-height: 1.75;
       color: var(--secondary);
       max-width: 400px;
     }
+    .ed-para strong { color: var(--text); font-weight: 500; }
 
-    /* ── Mindset ── */
-    #mindset {
-      padding: 100px 22px;
-      background: var(--surface);
+    /* ── Two-photo row (no text) ── */
+    .ed-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 420px;
     }
-    .container { max-width: var(--max); margin: 0 auto; }
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      margin-bottom: 10px;
+    .ed-duo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .section-headline {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.07;
-    }
-    .mindset-body {
-      max-width: 640px;
-      margin-top: 40px;
-    }
-    .mindset-body p {
-      font-size: 19px;
-      line-height: 1.65;
-      color: var(--secondary);
-      margin-bottom: 20px;
-    }
-    .mindset-body p:last-of-type { margin-bottom: 0; }
-    .mindset-body strong { color: var(--text); font-weight: 500; }
 
     /* ── Footer ── */
     footer {
@@ -240,8 +207,8 @@
     /* ── Reveal ── */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(16px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
 
@@ -249,20 +216,18 @@
     @media (max-width: 734px) {
       .nav-links { display: none; }
 
-      .editorial-item {
+      .ed-item {
         grid-template-columns: 1fr;
         min-height: auto;
       }
-      .editorial-item .ed-photo {
-        height: 320px;
-      }
-      .editorial-full {
-        height: 260px;
-      }
-      .ed-text {
-        padding: 44px 28px;
-      }
-      .ed-desc { max-width: 100%; }
+      .ed-item .ed-photo { height: 300px; }
+      .ed-text { padding: 44px 28px; }
+      .ed-para { max-width: 100%; font-size: 17px; }
+
+      .ed-full { height: 280px; }
+
+      .ed-duo { grid-template-columns: 1fr; height: auto; }
+      .ed-duo img { height: 260px; }
     }
   </style>
 </head>
@@ -294,95 +259,60 @@
     </a>
   </div>
 
-  <!-- ── Editorial flow ── -->
+  <!-- 1. Brede opener: coaching jeugd -->
+  <img src="korfbal.png" class="ed-full reveal" alt="Korfball coaching" style="object-position: center 30%;" />
 
-  <!-- Opener: brede foto korfbal coaching -->
-  <img src="korfbal.png" class="editorial-full reveal" alt="Korfball coaching" style="object-position: center 30%;" />
-
-  <!-- Korfball: foto links, tekst rechts -->
-  <div class="editorial-item reveal">
+  <!-- 2. Korfbal actie links · korfbal tekst rechts -->
+  <div class="ed-item reveal">
     <img src="korfbal2.png" class="ed-photo" alt="Korfball" style="object-position: center 40%;" />
     <div class="ed-text surface">
-      <span class="ed-icon">🏐</span>
-      <div class="ed-title" data-i18n="korfball.title">Korfball</div>
-      <p class="ed-desc" data-i18n="korfball.desc">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field.</p>
+      <p class="ed-para" data-i18n="story.korfball">I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field — not in the boardroom.</p>
     </div>
   </div>
 
-  <!-- Father: tekst links, babyfoto rechts -->
-  <div class="editorial-item reveal">
+  <!-- 3. Vader tekst links · babyfoto rechts -->
+  <div class="ed-item reveal">
     <div class="ed-text white">
-      <span class="ed-icon">👶</span>
-      <div class="ed-title" data-i18n="father.title">Father</div>
-      <p class="ed-desc" data-i18n="father.desc">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
+      <p class="ed-para" data-i18n="story.father">I'm a dad. That changes everything — your priorities, your discipline, your reason to push harder. It's the most grounding thing in my life.</p>
     </div>
     <img src="lucas.png" class="ed-photo" alt="Lucas" style="object-position: center center;" />
   </div>
 
-  <!-- Brede foto: doop -->
-  <img src="doop.png" class="editorial-full reveal" alt="Doop" style="object-position: center 40%;" />
+  <!-- 4. Brede foto: doop -->
+  <img src="doop.png" class="ed-full reveal" alt="Doop" style="object-position: center 40%;" />
 
-  <!-- AI & Automation: foto links, tekst rechts -->
-  <div class="editorial-item reveal">
-    <img src="fottt.png" class="ed-photo" alt="Rinse Nieboer" style="object-position: center top;" />
-    <div class="ed-text surface">
-      <span class="ed-icon">🤖</span>
-      <div class="ed-title" data-i18n="ai.title">AI & Automation</div>
-      <p class="ed-desc" data-i18n="ai.desc">I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what's possible and what most people use is enormous.</p>
-    </div>
-  </div>
-
-  <!-- Brede foto: Hogeschool Rotterdam -->
-  <img src="hr.jpg" class="editorial-full reveal" alt="Hogeschool Rotterdam" style="object-position: center 60%;" />
-
-  <!-- Investing: tekst links, foto rechts -->
-  <div class="editorial-item reveal">
-    <div class="ed-text white">
-      <span class="ed-icon">📈</span>
-      <div class="ed-title" data-i18n="investing.title">Investing</div>
-      <p class="ed-desc" data-i18n="investing.desc">I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline. I manage portfolios for myself and my family.</p>
-    </div>
-    <img src="dumomo.jpg" class="ed-photo" alt="Rinse Nieboer" style="object-position: center center;" />
-  </div>
-
-  <!-- Chess: foto links, tekst rechts -->
-  <div class="editorial-item reveal">
-    <img src="kerk.jpg" class="ed-photo" alt="Rotterdam Laurenskerk" style="object-position: center top;" />
-    <div class="ed-text surface">
-      <span class="ed-icon">♟</span>
-      <div class="ed-title" data-i18n="chess.title">Chess</div>
-      <p class="ed-desc" data-i18n="chess.desc">Chess teaches me to think several moves ahead and stay calm under pressure. The same mindset I bring to business decisions and product design.</p>
-    </div>
-  </div>
-
-  <!-- Brede foto: Rotterdam -->
-  <img src="zrot.png" class="editorial-full reveal" alt="Rotterdam" style="object-position: center center;" />
-
-  <!-- Training: tekst links, foto rechts -->
-  <div class="editorial-item reveal">
-    <div class="ed-text white">
-      <span class="ed-icon">🏋️</span>
-      <div class="ed-title" data-i18n="training.title">Training</div>
-      <p class="ed-desc" data-i18n="training.desc">I train consistently. Physical discipline feeds mental discipline. Showing up when you don't feel like it is a skill, and you build it in the gym before anywhere else.</p>
-    </div>
+  <!-- 5. Nina foto links · coaching tekst rechts -->
+  <div class="ed-item reveal">
     <img src="nina.png" class="ed-photo" alt="Korfball coaching" style="object-position: center top;" />
+    <div class="ed-text surface">
+      <p class="ed-para" data-i18n="story.building">I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy. I'm genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it.</p>
+    </div>
   </div>
 
-  <!-- ── Mindset ── -->
-  <section id="mindset">
-    <div class="container">
-      <div class="reveal">
-        <p class="eyebrow" data-i18n="mindset.eyebrow">Mindset</p>
-        <h2 class="section-headline" data-i18n="mindset.headline">How I think.</h2>
-      </div>
-      <div class="mindset-body reveal">
-        <p data-i18n-html="mindset.p1">I'm not the loudest person in the room. I don't need to be. I'd rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that's the short version of my philosophy.</p>
-        <p data-i18n-html="mindset.p2">I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking and my ability to make decisions clearly. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently.</p>
-        <p data-i18n-html="mindset.p3">Outside of building: I coach youth korfball at <strong>OZC Rotterdam</strong>, train as an athlete, play chess, and invest. I'm also a father. I bring the same mindset to everything — structure, accountability, and the discipline to see things through.</p>
-        <p data-i18n-html="mindset.p4">Rotterdam shaped me. It's a city that doesn't care about appearances. It cares about what you build. <strong>010.</strong></p>
-      </div>
+  <!-- 6. Portret tekst links · portret rechts -->
+  <div class="ed-item reveal">
+    <div class="ed-text white">
+      <p class="ed-para" data-i18n="story.study">I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences, with a minor in <strong>Impact Investment Management</strong>. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently. I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn't a goal, it's a baseline.</p>
     </div>
-  </section>
+    <img src="fottt.png" class="ed-photo" alt="Rinse Nieboer" style="object-position: center top;" />
+  </div>
+
+  <!-- 7. Brede foto: Hogeschool Rotterdam -->
+  <img src="hr.jpg" class="ed-full reveal" alt="Hogeschool Rotterdam" style="object-position: center 55%;" />
+
+  <!-- 8. Foto duo: dumomo + kerk -->
+  <div class="ed-duo reveal">
+    <img src="dumomo.jpg" alt="Rinse Nieboer" style="object-position: center center;" />
+    <img src="kerk.jpg" alt="Rotterdam Laurenskerk" style="object-position: center top;" />
+  </div>
+
+  <!-- 9. Rotterdam tekst links · Rotterdam foto rechts -->
+  <div class="ed-item reveal">
+    <div class="ed-text surface">
+      <p class="ed-para" data-i18n-html="story.rotterdam">Rotterdam shaped me. It's a city that doesn't care about appearances. It cares about what you build. <strong>010.</strong></p>
+    </div>
+    <img src="zrot.png" class="ed-photo" alt="Rotterdam" style="object-position: center center;" />
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -400,7 +330,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 

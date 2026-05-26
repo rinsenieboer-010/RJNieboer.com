@@ -40,6 +40,12 @@ const i18n = {
     'footer.copy': 'Copyright © 2026 Rinse Nieboer. All rights reserved.',
     'cv.download': 'Download CV',
 
+    'story.korfball': 'I coach youth korfball at OZC Rotterdam. Training the next generation keeps me sharp, teaches patience, and reminds me that leadership is earned on the field — not in the boardroom.',
+    'story.father': 'I\'m a dad. That changes everything — your priorities, your discipline, your reason to push harder. It\'s the most grounding thing in my life.',
+    'story.building': 'I\'d rather do the work and let the results speak. <strong>Accountability over excuses</strong> — that\'s the short version of my philosophy. I\'m genuinely fascinated by what AI can do — not as a hype cycle, but as a practical tool. I use it daily and build with it. The gap between what\'s possible and what most people use is enormous.',
+    'story.study': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences, with a minor in <strong>Impact Investment Management</strong>. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation — which sparked my drive to build software independently. I take investing seriously — ETFs, individual stocks, long-term thinking. Financial independence isn\'t a goal, it\'s a baseline.',
+    'story.rotterdam': 'Rotterdam shaped me. It\'s a city that doesn\'t care about appearances. It cares about what you build. <strong>010.</strong>',
+
     'about.page.title': 'About Me',
     'photos.eyebrow': 'Photos',
     'photos.headline': 'In real life.',
@@ -160,6 +166,12 @@ const i18n = {
 
     'footer.copy': 'Copyright © 2026 Rinse Nieboer. Alle rechten voorbehouden.',
     'cv.download': 'CV downloaden',
+
+    'story.korfball': 'Ik coach jeugdkorfbal bij OZC Rotterdam. De volgende generatie trainen houdt me scherp, leert me geduld, en herinnert me eraan dat leiderschap op het veld verdiend wordt — niet in de vergaderzaal.',
+    'story.father': 'Ik ben een vader. Dat verandert alles — je prioriteiten, je discipline, je reden om harder te pushen. Het is het meest bepalende in mijn leven.',
+    'story.building': 'Ik doe liever het werk en laat de resultaten spreken. <strong>Verantwoordelijkheid boven excuses</strong> — dat is de korte versie van mijn filosofie. Ik ben oprecht gefascineerd door wat AI kan — niet als hype, maar als praktisch gereedschap. Ik gebruik het dagelijks en bouw ermee. De kloof tussen wat mogelijk is en wat de meeste mensen gebruiken is enorm.',
+    'story.study': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam, met een minor in <strong>Impact Investment Management</strong>. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik bijdroeg aan een AI-agent voor leadgeneratie — wat mijn drive aanwakkerde om zelfstandig te bouwen. Ik neem investeren serieus — ETF\'s, individuele aandelen, langetermijndenken. Financiële onafhankelijkheid is geen doel, het is een basis.',
+    'story.rotterdam': 'Rotterdam heeft me gevormd. Het is een stad die zich niks aantrekt van schijn. Het gaat om wat je bouwt. <strong>010.</strong>',
 
     'about.page.title': 'Over Mij',
     'photos.eyebrow': 'Foto\'s',
