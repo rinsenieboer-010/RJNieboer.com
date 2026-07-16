@@ -107,6 +107,19 @@
     .lang-btn:hover { opacity: 0.75; background: rgba(0,0,0,0.06); }
     .lang-btn.active { opacity: 1; }
 
+    /* ── Scroll progress ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 100%;
+      z-index: 101;
+      background: linear-gradient(90deg, #0071e3, #00c6ff);
+      transform: scaleX(0);
+      transform-origin: left;
+      pointer-events: none;
+    }
+
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
@@ -117,20 +130,41 @@
       text-align: center;
       padding: calc(var(--nav-h) + 60px) 22px 80px;
       background: #0a1628;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: -60px 0;
       background-image: url('rot.jpg');
       background-size: cover;
       background-position: center 60%;
-      position: relative;
+      animation: heroZoom 14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1); }
     }
 
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
+      z-index: 1;
       background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.6) 100%);
     }
 
-    .hero > * { position: relative; z-index: 1; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      will-change: transform, opacity;
+    }
 
     .hero-eyebrow {
       font-size: 13px;
@@ -150,6 +184,27 @@
       color: #fff;
       opacity: 0;
       animation: fadeUp 0.7s 0.3s ease forwards;
+    }
+
+    /* Per-letter reveal (applied when JS splits the name) */
+    .hero-name.split {
+      opacity: 1;
+      animation: none;
+    }
+    .hero-name .word {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .hero-name .ltr {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.55em);
+      filter: blur(10px);
+      animation: ltrUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, filter, opacity;
+    }
+    @keyframes ltrUp {
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
     .hero-tagline {
@@ -286,8 +341,24 @@
       flex-direction: column;
       gap: 16px;
       transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
     }
     .project-card:hover { background: var(--surface); }
+
+    /* Cursor spotlight */
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(0,113,227,0.10), transparent 65%);
+      pointer-events: none;
+    }
+    .project-card:hover::after { opacity: 1; }
+
+    .project-card > * { position: relative; z-index: 1; }
 
     .project-name {
       font-size: 26px;
@@ -354,6 +425,11 @@
       object-position: center top;
       border-radius: 16px;
       display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+    .contact-photo:hover {
+      transform: scale(1.02) rotate(0.5deg);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
     }
 
     .contact-info { }
@@ -424,10 +500,26 @@
     /* ── Scroll reveal ── */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(28px);
+      filter: blur(6px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
     }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.visible { opacity: 1; transform: none; filter: none; }
+
+    /* ── Tag stagger ── */
+    .tag {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible .tag { opacity: 1; transform: none; }
+    .reveal.visible .tag:nth-child(1) { transition-delay: 0.30s; }
+    .reveal.visible .tag:nth-child(2) { transition-delay: 0.36s; }
+    .reveal.visible .tag:nth-child(3) { transition-delay: 0.42s; }
+    .reveal.visible .tag:nth-child(4) { transition-delay: 0.48s; }
+    .reveal.visible .tag:nth-child(5) { transition-delay: 0.54s; }
+    .reveal.visible .tag:nth-child(6) { transition-delay: 0.60s; }
+    .reveal.visible .tag:nth-child(7) { transition-delay: 0.66s; }
 
     /* ── Keyframes ── */
     @keyframes fadeUp {
@@ -443,7 +535,9 @@
       height: 88px;
       width: auto;
       display: block;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .project-card:hover .project-logo img { transform: scale(1.07) rotate(-1.5deg); }
 
     /* ── Mobile ── */
     @media (max-width: 734px) {
@@ -476,6 +570,22 @@
       0%, 100% { opacity: 0.7; transform: translateY(0); }
       50% { opacity: 1; transform: translateY(6px); }
     }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+      }
+      .reveal, .tag { opacity: 1; transform: none; filter: none; }
+      .hero-eyebrow, .hero-name, .hero-tagline, .hero-arrow { opacity: 1; }
+      .hero-bg { animation: none; transform: none; }
+      .scroll-progress { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -496,17 +606,22 @@
     </div>
   </nav>
 
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <!-- ── Hero ── -->
   <section class="hero">
-    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Rotterdam · Entrepreneur · Builder</p>
-    <h1 class="hero-name">Rinse Nieboer</h1>
-    <p class="hero-tagline" data-i18n="hero.tagline">Building practical tools and platforms — independently, from scratch, built to last.</p>
-    <a class="hero-arrow" href="#about" aria-label="Scroll down">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="16" y1="6" x2="16" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <polyline points="8,19 16,27 24,19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
-    </a>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Rotterdam · Entrepreneur · Builder</p>
+      <h1 class="hero-name">Rinse Nieboer</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Building practical tools and platforms, independently, from scratch, built to last.</p>
+      <a class="hero-arrow" href="#about" aria-label="Scroll down">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="16" y1="6" x2="16" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <polyline points="8,19 16,27 24,19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
   </section>
 
   <!-- ── About ── -->
@@ -523,15 +638,15 @@
         <div class="reveal">
           <div class="about-stats">
             <div>
-              <div class="stat-value">21</div>
+              <div class="stat-value" data-count="21">21</div>
               <div class="stat-label" data-i18n="stat.age">Years old</div>
             </div>
             <div>
-              <div class="stat-value">4</div>
+              <div class="stat-value" data-count="4">4</div>
               <div class="stat-label" data-i18n="stat.products">Live products</div>
             </div>
             <div>
-              <div class="stat-value">010</div>
+              <div class="stat-value" data-count="10" data-pad="3">010</div>
               <div class="stat-label" data-i18n="stat.city">Rotterdam</div>
             </div>
             <div>
@@ -667,15 +782,96 @@
 
   <script src="/lang.js"></script>
   <script>
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Scroll reveal ── */
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          setTimeout(() => entry.target.classList.add('visible'), reducedMotion ? 0 : i * 80);
           io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ── Hero name: per-letter reveal ── */
+    if (!reducedMotion) {
+      const name = document.querySelector('.hero-name');
+      const words = name.textContent.trim().split(/\s+/);
+      name.textContent = '';
+      let idx = 0;
+      words.forEach((word, w) => {
+        const wordEl = document.createElement('span');
+        wordEl.className = 'word';
+        for (const ch of word) {
+          const ltr = document.createElement('span');
+          ltr.className = 'ltr';
+          ltr.textContent = ch;
+          ltr.style.animationDelay = (0.25 + idx * 0.045) + 's';
+          wordEl.appendChild(ltr);
+          idx++;
+        }
+        name.appendChild(wordEl);
+        if (w < words.length - 1) name.appendChild(document.createTextNode(' '));
+      });
+      name.classList.add('split');
+    }
+
+    /* ── Parallax hero + scroll progress ── */
+    const heroBg = document.querySelector('.hero-bg');
+    const heroContent = document.querySelector('.hero-content');
+    const progress = document.querySelector('.scroll-progress');
+    let ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+        if (!reducedMotion && y < window.innerHeight) {
+          heroBg.style.transform = 'translateY(' + y * 0.25 + 'px)';
+          heroContent.style.transform = 'translateY(' + y * 0.35 + 'px)';
+          heroContent.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 0.75));
+        }
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Count-up stats ── */
+    const statIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        statIO.unobserve(entry.target);
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const pad = parseInt(el.dataset.pad || '0', 10);
+        if (reducedMotion) return;
+        const dur = 1200, start = performance.now();
+        function tick(now) {
+          const p = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = Math.round(target * eased);
+          el.textContent = pad ? String(val).padStart(pad, '0') : String(val);
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-value[data-count]').forEach(el => statIO.observe(el));
+
+    /* ── Project card cursor spotlight ── */
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
   </script>
 
 </body>
