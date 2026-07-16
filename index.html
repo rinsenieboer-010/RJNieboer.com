@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="rot.webp" fetchpriority="high" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -137,7 +138,7 @@
     .hero-bg {
       position: absolute;
       inset: -60px 0;
-      background-image: url('rot.jpg');
+      background-image: url('rot.webp');
       background-size: cover;
       background-position: center 60%;
       animation: heroZoom 14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -633,7 +634,7 @@
       </div>
       <div class="about-grid">
         <div class="reveal">
-          <img class="about-photo" src="foto.png" alt="Rinse Nieboer" />
+          <img class="about-photo" src="foto.webp" loading="lazy" decoding="async" width="1122" height="1402" alt="Rinse Nieboer" />
         </div>
         <div class="reveal">
           <div class="about-stats">
@@ -682,7 +683,7 @@
       <div class="projects-grid">
 
         <div class="project-card reveal">
-          <div class="project-logo"><img src="logo-jmp.png" alt="justmyplan logo" /></div>
+          <div class="project-logo"><img src="logo-jmp.webp" alt="justmyplan logo" /></div>
           <div class="project-name">just<span>myplan</span></div>
           <p class="project-desc" data-i18n="jmp.desc">Smart planner — tasks, calendar and AI in one place.</p>
           <div class="project-links">
@@ -692,7 +693,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-logo"><img src="logo-jap.png" alt="justanopinion logo" /></div>
+          <div class="project-logo"><img src="logo-jap.webp" alt="justanopinion logo" /></div>
           <div class="project-name">just<span>anopinion</span></div>
           <p class="project-desc" data-i18n="jap.desc">Sharp opinions on entrepreneurship, tech and the world.</p>
           <div class="project-links">
@@ -702,7 +703,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-logo"><img src="logo-jf.png" alt="justfigured logo" /></div>
+          <div class="project-logo"><img src="logo-jf.webp" alt="justfigured logo" /></div>
           <div class="project-name">just<span>figured</span></div>
           <p class="project-desc" data-i18n="jf.desc">Real lessons from real experience — no shortcuts.</p>
           <div class="project-links">
@@ -712,7 +713,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-logo"><img src="logo-jab.png" alt="justabook logo" /></div>
+          <div class="project-logo"><img src="logo-jab.webp" alt="justabook logo" /></div>
           <div class="project-name">just<span>abook</span></div>
           <p class="project-desc" data-i18n="jab.desc">Clean document editor — write without the noise.</p>
           <div class="project-links">
@@ -768,7 +769,7 @@
           </div>
         </div>
       </div>
-      <img class="contact-photo reveal" src="gilet.png" alt="Rinse Nieboer" />
+      <img class="contact-photo reveal" src="gilet.webp" loading="lazy" decoding="async" width="1086" height="1448" alt="Rinse Nieboer" />
     </div>
   </section>
 
