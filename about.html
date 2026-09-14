@@ -6,7 +6,7 @@
   <title>About Me — Rinse Nieboer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -234,6 +234,7 @@
       .ed-text-block p { font-size: 17px; }
     }
   </style>
+  <link rel="stylesheet" href="/design.css" />
 </head>
 <body>
 
@@ -247,8 +248,8 @@
         <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="lang-switch">
-        <button class="lang-btn active" data-lang="en" title="English">🇬🇧</button>
-        <button class="lang-btn" data-lang="nl" title="Nederlands">🇳🇱</button>
+        <button class="lang-btn active" data-lang="en" title="English">EN</button>
+        <button class="lang-btn" data-lang="nl" title="Nederlands">NL</button>
       </div>
     </div>
   </nav>
@@ -336,17 +337,8 @@
   </footer>
 
   <script src="/lang.js"></script>
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
 
+
+  <script src="/design.js"></script>
 </body>
 </html>
