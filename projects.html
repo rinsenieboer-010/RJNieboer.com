@@ -88,7 +88,7 @@
       cursor: pointer;
       font-size: 18px;
       padding: 3px 5px;
-      border-radius: 6px;
+      border-radius: 10px;
       opacity: 0.4;
       transition: opacity 0.15s, background 0.15s;
       line-height: 1;
@@ -111,7 +111,7 @@
     }
     .page-title {
       font-size: clamp(48px, 8vw, 88px);
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.045em;
       line-height: 1.04;
     }
@@ -153,7 +153,7 @@
     .project-meta {}
     .project-name {
       font-size: clamp(36px, 5vw, 64px);
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.04em;
       line-height: 1;
       margin-bottom: 14px;
@@ -210,7 +210,7 @@
 
     .support-title {
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.025em;
       margin-bottom: 6px;
     }
@@ -237,7 +237,7 @@
     }
     input, textarea, select {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 10px 14px;
       font-size: 15px;
       font-family: inherit;
@@ -272,7 +272,7 @@
       margin-top: 14px;
       font-size: 14px;
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: 12px;
     }
     .form-status.success { background: #f0fdf4; color: #166534; }
     .form-status.error { background: #fef2f2; color: #991b1b; }
@@ -317,6 +317,7 @@
   </style>
   <link rel="stylesheet" href="/design.css" />
   <link rel="stylesheet" href="/apple.css" />
+  <script type="module" src="/scrollThumbs.js"></script>
 </head>
 <body>
 
@@ -380,7 +381,7 @@
           <img src="/logo-jab.webp" alt="justabook" />
         </div>
         <div class="project-meta">
-          <h2 class="project-name">just<span style="color:#111">abook</span></h2>
+          <h2 class="project-name">just<span style="color:#1d1d1f">abook</span></h2>
           <p class="project-tagline" data-i18n="jab.tagline">A clean, minimal document editor that gets out of your way. Write and organise without the noise.</p>
           <a class="btn-visit" style="background:#1d1d1f" href="https://justabook.org" target="_blank" rel="noopener" data-i18n="jab.visit">Visit justabook.org</a>
         </div>
@@ -442,7 +443,7 @@
         <div class="project-meta">
           <h2 class="project-name">just<span style="color:#E6B400">figured</span></h2>
           <p class="project-tagline" data-i18n="jf.tagline">Lessons from real experience — for entrepreneurs still figuring things out. Honest, direct, no shortcuts.</p>
-          <a class="btn-visit" style="background:#E6B400; color:#111" href="https://justfigured.org" target="_blank" rel="noopener" data-i18n="jf.visit">Visit justfigured.org</a>
+          <a class="btn-visit" style="background:#E6B400; color:#1d1d1f" href="https://justfigured.org" target="_blank" rel="noopener" data-i18n="jf.visit">Visit justfigured.org</a>
         </div>
       </div>
       <div class="features reveal">
@@ -467,7 +468,7 @@
     <div class="container">
       <div class="reveal">
         <p style="font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--secondary);margin-bottom:10px;" data-i18n="support.eyebrow">Support</p>
-        <h2 style="font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.07;margin-bottom:12px;" data-i18n="support.headline">A question or issue?</h2>
+        <h2 style="font-size:clamp(32px,5vw,56px);font-weight: 600;letter-spacing:-0.03em;line-height:1.07;margin-bottom:12px;" data-i18n="support.headline">A question or issue?</h2>
         <p style="font-size:17px;color:var(--secondary);margin-bottom:40px;" data-i18n="support.sub">Send a message and I'll get back to you as soon as possible.</p>
       </div>
       <div class="support-wrap reveal">
