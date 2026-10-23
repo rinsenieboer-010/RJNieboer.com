@@ -1,0 +1,19 @@
+# Rinse Nieboer
+
+> Rinse Nieboer is a 21-year-old entrepreneur and software builder from Rotterdam, the Netherlands. He builds practical web and mobile products independently, using AI as a daily tool.
+
+He studies Entrepreneurship & Retail Management at Rotterdam University of Applied Sciences, with a minor in Impact Investment Management. Before building software he worked in sales (lead generation with an AI agent at Sales in Motion) and hospitality. He coaches youth korfball at OZC Rotterdam and invests long term in ETFs and stocks.
+
+## Products
+- [Just My Plan](https://justmyplan.com): planner that combines tasks, calendar and a built-in AI assistant. Web app and iPhone app.
+- [Just a Book](https://justabook.org): minimal document editor for writing and organising without clutter.
+- [Just an Opinion](https://justanopinion.org): Dutch opinion site with sharp, personal takes on entrepreneurship, technology and society.
+- [Just Figured It Out](https://justfigured.org): Dutch site with short, practical tips from real experience.
+
+## Pages
+- [About](https://rjnieboer.com/about.html): background, study, work experience and interests.
+- [Projects](https://rjnieboer.com/projects.html): all products with a short explanation and a support form.
+- [CV](https://rjnieboer.com/cv-rinse-nieboer.pdf)
+
+## Contact
+- Email: r.j.nieboer@outlook.com
