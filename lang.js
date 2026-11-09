@@ -1,4 +1,12 @@
-﻿const i18n = {
+// Leeftijd wordt automatisch berekend op basis van de geboortedatum (31-10-2004).
+const AGE = (() => {
+  const now = new Date();
+  let a = now.getFullYear() - 2004;
+  if (now.getMonth() < 9 || (now.getMonth() === 9 && now.getDate() < 31)) a--;
+  return a;
+})();
+
+const i18n = {
   en: {
     'nav.home': 'Home',
     'nav.about': 'About Me',
@@ -14,7 +22,7 @@
     'stat.products': 'Live products',
     'stat.city': 'Rotterdam',
     'stat.always': 'Always building',
-    'about.body': 'I\'m <strong>Rinse Nieboer</strong>, a 21-year-old entrepreneur and builder from Rotterdam. Independent mindset, composed under pressure, and accountable for everything I do.',
+    'about.body': 'I\'m <strong>Rinse Nieboer</strong>, a ' + AGE + '-year-old entrepreneur and builder from Rotterdam. Independent mindset, composed under pressure, and accountable for everything I do.',
     'tag.entrepreneurship': 'Entrepreneurship',
     'tag.product': 'Product building',
     'tag.ai': 'AI & automation',
@@ -43,7 +51,7 @@
     'story.korfball': 'At OZC Rotterdam I coach youth korfball, referee matches, and compete myself. Three roles, one club. Training the next generation keeps me sharp and reminds me that leadership is earned on the pitch, not in the boardroom.',
     'story.father': 'I\'m a dad. That changes everything, your priorities, your discipline, your reason to push harder. It\'s the most grounding thing in my life.',
     'story.building': 'I\'d rather do the work and let the results speak. <strong>Accountability over excuses</strong>, that\'s the short version of my philosophy. I build with AI as a practical tool, not a hype cycle. <strong>justmyplan.com</strong> is live on the App Store. The gap between what\'s possible and what most people use is enormous, and that\'s exactly where I build.',
-    'story.study': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. The programme covers strategy, marketing, finance and pitching. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking: impact valuation, reporting and decision-making. I interned at <strong>Sales in Motion</strong>, where I made contact with prospects at trade fairs, worked with a CRM system and contributed to building an AI agent for lead generation. That last part sparked my drive to build software independently.',
+    'story.study': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. The programme covers strategy, marketing, finance and pitching. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking: impact valuation, reporting and decision-making. I interned at <strong>Sales in Motion</strong>, where I made contact with prospects at trade fairs, worked with a CRM system and contributed to building an AI agent for lead generation. That last part sparked my drive to build software independently. Right now I\'m doing my graduation internship at <strong>Prometheus21</strong>, an AI agency in Rotterdam, where I\'m redesigning the client journey from first contact to signed assignment.',
     'story.investing': 'Investing is something I take seriously. ETFs, individual stocks, long-term thinking. Financial independence is not a goal, it is a baseline.',
     'story.rotterdam': 'I work at <strong>\'t Zusje Rotterdam</strong>, kitchen and front of house. When it gets busy, you don\'t think, you perform. That\'s a standard I carry into everything I do.',
 
@@ -68,7 +76,7 @@
     'mindset.eyebrow': 'Mindset',
     'mindset.headline': 'How I think.',
     'mindset.p1': 'I\'m not the loudest person in the room. I don\'t need to be. I\'d rather do the work and let the results speak. <strong>Accountability over excuses</strong>, that\'s the short version of my philosophy.',
-    'mindset.p2': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking and my ability to make decisions clearly. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation, which sparked my drive to build software independently.',
+    'mindset.p2': 'I study <strong>Entrepreneurship & Retail Management</strong> at Rotterdam University of Applied Sciences. My minor in <strong>Impact Investment Management</strong> sharpened my financial thinking and my ability to make decisions clearly. I interned at <strong>Sales in Motion</strong>, where I contributed to building an AI agent for lead generation, which sparked my drive to build software independently. Right now I\'m doing my graduation internship at <strong>Prometheus21</strong>, an AI agency in Rotterdam, where I\'m redesigning the client journey from first contact to signed assignment.',
     'mindset.p3': 'Outside of building: I coach youth korfball at <strong>OZC Rotterdam</strong>, train as an athlete, play chess, and invest. I\'m also a father. I bring the same mindset to everything, structure, accountability, and the discipline to see things through.',
     'mindset.p4': 'Rotterdam shaped me. It\'s a city that doesn\'t care about appearances. It cares about what you build. <strong>010.</strong>',
 
@@ -142,7 +150,7 @@
     'stat.products': 'Live producten',
     'stat.city': 'Rotterdam',
     'stat.always': 'Altijd aan het bouwen',
-    'about.body': 'Ik ben <strong>Rinse Nieboer</strong>, een 21-jarige ondernemer en bouwer uit Rotterdam. Zelfstandige instelling, kalm onder druk en verantwoordelijk voor alles wat ik doe.',
+    'about.body': 'Ik ben <strong>Rinse Nieboer</strong>, een ' + AGE + '-jarige ondernemer en bouwer uit Rotterdam. Zelfstandige instelling, kalm onder druk en verantwoordelijk voor alles wat ik doe.',
     'tag.entrepreneurship': 'Ondernemerschap',
     'tag.product': 'Producten bouwen',
     'tag.ai': 'AI & automatisering',
@@ -171,7 +179,7 @@
     'story.korfball': 'Bij OZC Rotterdam coach ik jeugdkorfbal, fluit ik wedstrijden en speel ik zelf mee. Drie rollen, één club. De volgende generatie trainen houdt me scherp en herinnert me eraan dat leiderschap op het veld verdiend wordt, niet in de vergaderzaal.',
     'story.father': 'Ik ben een vader. Dat verandert alles, je prioriteiten, je discipline, je reden om harder te pushen. Het is het meest bepalende in mijn leven.',
     'story.building': 'Ik doe liever het werk en laat de resultaten spreken. <strong>Verantwoordelijkheid boven excuses</strong>, dat is de korte versie van mijn filosofie. Ik bouw met AI als praktisch gereedschap, niet als hype. <strong>justmyplan.com</strong> staat live in de App Store. De kloof tussen wat mogelijk is en wat de meeste mensen gebruiken is enorm, en dat is precies waar ik bouw.',
-    'story.study': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam. De opleiding gaat over strategie, marketing, financiën en pitchen. Mijn minor <strong>Impact Investment Management</strong> scherpte mijn financieel denken: impact valuatie, rapportage en besluitvorming. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik prospects contacteerde op beurzen, werkte met een CRM-systeem en bijdroeg aan een AI-agent voor leadgeneratie. Dat laatste wakkerde mijn drive aan om zelfstandig te bouwen.',
+    'story.study': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam. De opleiding gaat over strategie, marketing, financiën en pitchen. Mijn minor <strong>Impact Investment Management</strong> scherpte mijn financieel denken: impact valuatie, rapportage en besluitvorming. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik prospects contacteerde op beurzen, werkte met een CRM-systeem en bijdroeg aan een AI-agent voor leadgeneratie. Dat laatste wakkerde mijn drive aan om zelfstandig te bouwen. Nu loop ik mijn afstudeerstage bij <strong>Prometheus21</strong>, een AI-bureau in Rotterdam, waar ik het klanttraject van eerste contact tot opdracht herontwerp.',
     'story.investing': 'Beleggen neem ik serieus. ETF\'s, individuele aandelen, langetermijndenken. Financiële onafhankelijkheid is geen doel, het is een basis.',
     'story.rotterdam': 'Ik werk bij <strong>\'t Zusje Rotterdam</strong>, keuken en bediening. Als het druk wordt, denk je niet, je voert uit. Dat is een standaard die ik meeneem naar alles wat ik doe.',
 
@@ -196,7 +204,7 @@
     'mindset.eyebrow': 'Mindset',
     'mindset.headline': 'Hoe ik denk.',
     'mindset.p1': 'Ik ben niet de luidste in de kamer. Dat hoef ik ook niet. Ik doe liever het werk en laat de resultaten spreken. <strong>Verantwoordelijkheid boven excuses</strong>, dat is de korte versie van mijn filosofie.',
-    'mindset.p2': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam. Mijn minor in <strong>Impact Investment Management</strong> scherpte mijn financieel denken en mijn vermogen om helder beslissingen te nemen. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik bijdroeg aan het bouwen van een AI-agent voor leadgeneratie, wat mijn drive aanwakkerde om zelfstandig software te bouwen.',
+    'mindset.p2': 'Ik studeer <strong>Ondernemerschap & Retail Management</strong> aan de Hogeschool Rotterdam. Mijn minor in <strong>Impact Investment Management</strong> scherpte mijn financieel denken en mijn vermogen om helder beslissingen te nemen. Ik liep stage bij <strong>Sales in Motion</strong>, waar ik bijdroeg aan het bouwen van een AI-agent voor leadgeneratie, wat mijn drive aanwakkerde om zelfstandig software te bouwen. Nu loop ik mijn afstudeerstage bij <strong>Prometheus21</strong>, een AI-bureau in Rotterdam, waar ik het klanttraject van eerste contact tot opdracht herontwerp.',
     'mindset.p3': 'Naast bouwen: ik coach jeugdkorfbal bij <strong>OZC Rotterdam</strong>, train als atleet, speel schaken en investeer. Ik ben ook vader. Ik neem dezelfde instelling mee naar alles, structuur, verantwoordelijkheid en de discipline om dingen af te maken.',
     'mindset.p4': 'Rotterdam heeft me gevormd. Het is een stad die zich niks aantrekt van schijn. Het gaat om wat je bouwt. <strong>010.</strong>',
 
@@ -276,6 +284,8 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-ph');
     if (t[key] !== undefined) el.placeholder = t[key];
   });
+
+  document.querySelectorAll('[data-age]').forEach(el => { el.textContent = AGE; });
 
   document.documentElement.lang = lang;
   localStorage.setItem('lang', lang);

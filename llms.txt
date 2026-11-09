@@ -1,8 +1,8 @@
 # Rinse Nieboer
 
-> Rinse Nieboer is a 21-year-old entrepreneur and software builder from Rotterdam, the Netherlands. He builds practical web and mobile products independently, using AI as a daily tool.
+> Rinse Nieboer is a 22-year-old entrepreneur and software builder from Rotterdam, the Netherlands. He builds practical web and mobile products independently, using AI as a daily tool.
 
-He studies Entrepreneurship & Retail Management at Rotterdam University of Applied Sciences, with a minor in Impact Investment Management. Before building software he worked in sales (lead generation with an AI agent at Sales in Motion) and hospitality. He coaches youth korfball at OZC Rotterdam and invests long term in ETFs and stocks.
+He studies Entrepreneurship & Retail Management at Rotterdam University of Applied Sciences, with a minor in Impact Investment Management. Before building software he worked in sales (lead generation with an AI agent at Sales in Motion) and hospitality. Since September 2026 he is doing his graduation internship at Prometheus21, an AI agency in Rotterdam, redesigning the client journey from first contact to signed assignment. He coaches youth korfball at OZC Rotterdam and invests long term in ETFs and stocks.
 
 ## Products
 - [Just My Plan](https://justmyplan.com): planner that combines tasks, calendar and a built-in AI assistant. Web app and iPhone app.
